@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: authok Community
+    url: https://community.authok.com/c/sdks/authokjs/59
+    about: Discuss this SDK in the authok Community forums
+  - name: Library Documentation
+    url: https://authok.com/docs/libraries/authokjs/v9
+    about: Read the library docs on authok.com
+  - name: authok.js API docs
+    url: https://authok.github.io/authok.js/index.html
+    about: Read the SDK API documentation

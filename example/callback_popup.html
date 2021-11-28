@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/authok.js"></script>
+    <script type="text/javascript">
+      var authok = new authok.WebAuth({
+        domain: 'brucke.authok.com',
+        redirectUri: 'http://localhost:3000/example',
+        clientID: 'k5u3o2fiAA8XweXEEX604KCwCjzjtMU6',
+        popupOrigin: 'http://localhost:3000'
+      });
+
+      authok.popup.callback();
+    </script>
+  </head>
+
+  <body></body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/authok.js"></script>
+    <script type="text/javascript">
+      var authok = new authok.WebAuth({
+        domain: 'authok-tests-authokjs.authok.com',
+        redirectUri: 'https://localhost:3000/example',
+        clientID: '3GGMIEuBPZ28lb6NBDNARaEZisqFakAs',
+        responseType: 'token'
+      });
+      authok.crossOriginVerification();
+    </script>
+  </head>
+
+  <body></body>
+</html>

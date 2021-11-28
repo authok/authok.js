@@ -1,0 +1,7 @@
+{
+  "//": "experimental bower support",
+  "name": "authok.js",
+  "main": "dist/authok.js",
+  "dependencies": {},
+  "ignore": ["test"]
+}
