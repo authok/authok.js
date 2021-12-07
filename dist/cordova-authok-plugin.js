@@ -1,7 +1,7 @@
 /**
  * authok-js v9.18.0
  * Author: authok
- * Date: 2021-11-28
+ * Date: 2021-12-01
  * License: MIT
  */
 

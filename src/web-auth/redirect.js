@@ -20,17 +20,17 @@ function Redirect(authok, options) {
 }
 
 /**
- * Logs in the user with username and password using the cross origin authentication (/co/authenticate) flow. You can use either `username` or `email` to identify the user, but `username` will take precedence over `email`.
- * Some browsers might not be able to successfully authenticate if 3rd party cookies are disabled in your browser. [See here for more information.]{@link https://authok.com/docs/cross-origin-authentication}.
- * After the /co/authenticate call, you'll have to use the {@link parseHash} function at the `redirectUri` specified in the constructor.
+ * username/password 进行用户登录, 采用跨域认证 (/co/authenticate) 流程. 你可以用 `username` 或 `email` 来标识用户, `username` 的优先级高于 `email`.
+ * 部分浏览器可能无法成功认证，如果第三方 cookie 被浏览器禁用的话. [查看这里获取更多信息.]{@link https://authok.com/docs/cross-origin-authentication}.
+ * 调用 /co/authenticate 之后, you'll have to use the {@link parseHash} function at the `redirectUri` specified in the constructor.
  *
  * @method loginWithCredentials
  * @deprecated This method will be released in the next major version. Use `webAuth.login` instead.
  * @param {Object} options options used in the {@link authorize} call after the login_ticket is acquired
- * @param {String} [options.username] Username (mutually exclusive with email)
- * @param {String} [options.email] Email (mutually exclusive with username)
+ * @param {String} [options.username] Username (与 email 互斥)
+ * @param {String} [options.email] Email (与 username 互斥)
  * @param {String} options.password Password
- * @param {String} [options.connection] Connection used to authenticate the user, it can be a realm name or a database connection name
+ * @param {String} [options.connection] 用于认证用户的连接, 可以是 realm 名字 或 database 连接 的名字
  * @param {crossOriginLoginCallback} cb Callback function called only when an authentication error, like invalid username or password, occurs. For other types of errors, there will be a redirect to the `redirectUri`.
  * @memberof Redirect.prototype
  * @memberof Redirect.prototype

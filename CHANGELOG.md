@@ -1,9 +1,11 @@
 # Change Log
 
 ## [v9.18.0](https://github.com/authok/authok.js/tree/v9.18.0) (2021-11-09)
+
 [Full Changelog](https://github.com/authok/authok.js/compare/v9.17.0...v9.18.0)
 
 **Added**
+
 - Make state expiration configurable [\#1217](https://github.com/authok/authok.js/pull/1217) ([aedelbro](https://github.com/aedelbro))
 
 [Full Changelog](https://github.com/authok/authok.js/compare/v9.16.4...v9.17.0)
@@ -615,7 +617,7 @@ We wrote a [Migration Guide](https://authok.com/docs/libraries/authokjs/v9/migra
 `WebAuth.client.signupAndLogin` now uses Cross Origin Authentication to handle the authentication request after the signup.
 
 **Breaking change**
-`WebAuth.popup.loginWithCredentials` now uses Cross Origin Authentication and `WebAuth.checkSession` to handle authentication requests without making a page redirect.
+`WebAuth.popup.loginWithCredentials` 现在采用跨域认证和 `WebAuth.checkSession` 来处理认证请求，无需重定向页面.
 
 ## [v8.10.1](https://github.com/authok/authok.js/tree/v8.10.1) (2017-09-19)
 
