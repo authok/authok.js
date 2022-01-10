@@ -225,7 +225,7 @@ describe('authok.authentication', function () {
     it('should return a url using the default settings', function () {
       var url = this.authok.buildLogoutUrl();
 
-      expect(url).to.be('https://me.authok.com/v2/logout?client_id=...');
+      expect(url).to.be('https://me.authok.com/logout?client_id=...');
     });
 
     it('should ignore the clientID', function () {
@@ -233,7 +233,7 @@ describe('authok.authentication', function () {
         clientID: undefined
       });
 
-      expect(url).to.be('https://me.authok.com/v2/logout?');
+      expect(url).to.be('https://me.authok.com/logout?');
     });
 
     it('should return a url using overriding the default settings', function () {
@@ -244,7 +244,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/v2/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&federated'
+        'https://me.authok.com/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&federated'
       );
     });
     it('should not add value for federated', function () {
@@ -255,7 +255,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/v2/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&federated'
+        'https://me.authok.com/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&federated'
       );
     });
     it('should not included federated param if the value is false', function () {
@@ -266,7 +266,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/v2/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com'
+        'https://me.authok.com/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com'
       );
     });
   });
@@ -289,7 +289,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/v2/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&authokClient=' +
+        'https://me.authok.com/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&authokClient=' +
           encodeURIComponent(telemetryInfo) +
           '&federated'
       );
