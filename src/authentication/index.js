@@ -256,7 +256,7 @@ Authentication.prototype.buildLogoutUrl = function (options) {
     qString += '&federated';
   }
 
-  return urljoin(this.baseOptions.rootUrl, 'v2', 'logout', '?' + qString);
+  return urljoin(this.baseOptions.rootUrl, 'logout', '?' + qString);
 };
 
 /**
