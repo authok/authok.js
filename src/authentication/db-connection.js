@@ -34,7 +34,7 @@ function DBConnection(request, options) {
  * @param {String} options.connection name of the connection where the user will be created
  * @param {Object} [options.user_metadata] additional signup attributes used for creating the user. Will be stored in `user_metadata`
  * @param {signUpCallback} cb
- * @see   {@link https://authok.com/docs/api/authentication#signup}
+ * @see   {@link https://authok.cn/docs/api/authentication#signup}
  * @ignore
  */
 DBConnection.prototype.signup = function (options, cb) {
@@ -90,7 +90,7 @@ DBConnection.prototype.signup = function (options, cb) {
  * @param {String} options.email address where the user will receive the change password email. It should match the user's email in authok
  * @param {String} options.connection name of the connection where the user was created
  * @param {changePasswordCallback} cb
- * @see   {@link https://authok.com/docs/api/authentication#change-password}
+ * @see   {@link https://authok.cn/docs/api/authentication#change-password}
  * @ignore
  */
 DBConnection.prototype.changePassword = function (options, cb) {

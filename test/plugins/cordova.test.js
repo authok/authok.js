@@ -94,14 +94,14 @@ describe('authok.plugins.cordova', function () {
     it('should return a change the authorize params', function () {
       expect(
         this.handler.processParams({
-          domain: 'test.authok.com',
+          domain: 'test.authok.cn',
           redirectUri: 'https://callback.com',
           owp: true,
           otherParam: 'something'
         })
       ).to.eql({
-        domain: 'test.authok.com',
-        redirectUri: 'https://test.authok.com/mobile',
+        domain: 'test.authok.cn',
+        redirectUri: 'https://test.authok.cn/mobile',
         otherParam: 'something'
       });
     });
@@ -117,7 +117,7 @@ describe('authok.plugins.cordova', function () {
       var _this = this;
       this.events = {};
       var webAuth = new WebAuth({
-        domain: 'wptest.authok.com',
+        domain: 'wptest.authok.cn',
         clientID: 'gYSNlU4YC4V1YPdqq8zPQcup6rJw1Mbt',
         responseType: 'token',
         __clock: () => new Date(1482933050000)
@@ -167,7 +167,7 @@ describe('authok.plugins.cordova', function () {
             idToken:
               'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlF6RTROMFpCTTBWRFF6RTJSVVUwTnpJMVF6WTFNelE0UVRrMU16QXdNRUk0UkRneE56RTRSZyJ9.eyJpc3MiOiJodHRwczovL3dwdGVzdC5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NTVkNDhjNTdkNWIwYWQwMjIzYzQwOGQ3IiwiYXVkIjoiZ1lTTmxVNFlDNFYxWVBkcXE4elBRY3VwNnJKdzFNYnQiLCJleHAiOjE0ODI5NjkwMzEsImlhdCI6MTQ4MjkzMzAzMSwibm9uY2UiOiJhc2ZkIn0.PPoh-pITcZ8qbF5l5rMZwXiwk5efbESuqZ0IfMUcamB6jdgLwTxq-HpOT_x5q6-sO1PBHchpSo1WHeDYMlRrOFd9bh741sUuBuXdPQZ3Zb0i2sNOAC2RFB1E11mZn7uNvVPGdPTg-Y5xppz30GSXoOJLbeBszfrVDCmPhpHKGGMPL1N6HV-3EEF77L34YNAi2JQ-b70nFK_dnYmmv0cYTGUxtGTHkl64UEDLi3u7bV-kbGky3iOOCzXKzDDY6BBKpCRTc2KlbrkO2A2PuDn27WVv1QCNEFHvJN7HxiDDzXOsaUmjrQ3sfrHhzD7S9BcCRkekRfD9g95SKD5J0Fj8NA',
             idTokenPayload: {
-              iss: 'https://wptest.authok.com/',
+              iss: 'https://wptest.authok.cn/',
               sub: 'authok|55d48c57d5b0ad0223c408d7',
               aud: 'gYSNlU4YC4V1YPdqq8zPQcup6rJw1Mbt',
               exp: 1482969031,
@@ -187,8 +187,7 @@ describe('authok.plugins.cordova', function () {
       );
 
       this.events.loadstart({
-        url:
-          'https://wptest.authok.com/mobile#state=foo&access_token=asldkfjahsdlkfjhasd&id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlF6RTROMFpCTTBWRFF6RTJSVVUwTnpJMVF6WTFNelE0UVRrMU16QXdNRUk0UkRneE56RTRSZyJ9.eyJpc3MiOiJodHRwczovL3dwdGVzdC5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NTVkNDhjNTdkNWIwYWQwMjIzYzQwOGQ3IiwiYXVkIjoiZ1lTTmxVNFlDNFYxWVBkcXE4elBRY3VwNnJKdzFNYnQiLCJleHAiOjE0ODI5NjkwMzEsImlhdCI6MTQ4MjkzMzAzMSwibm9uY2UiOiJhc2ZkIn0.PPoh-pITcZ8qbF5l5rMZwXiwk5efbESuqZ0IfMUcamB6jdgLwTxq-HpOT_x5q6-sO1PBHchpSo1WHeDYMlRrOFd9bh741sUuBuXdPQZ3Zb0i2sNOAC2RFB1E11mZn7uNvVPGdPTg-Y5xppz30GSXoOJLbeBszfrVDCmPhpHKGGMPL1N6HV-3EEF77L34YNAi2JQ-b70nFK_dnYmmv0cYTGUxtGTHkl64UEDLi3u7bV-kbGky3iOOCzXKzDDY6BBKpCRTc2KlbrkO2A2PuDn27WVv1QCNEFHvJN7HxiDDzXOsaUmjrQ3sfrHhzD7S9BcCRkekRfD9g95SKD5J0Fj8NA&token_type=Bearer&refresh_token=kajshdgfkasdjhgfas'
+        url: 'https://wptest.authok.cn/mobile#state=foo&access_token=asldkfjahsdlkfjhasd&id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlF6RTROMFpCTTBWRFF6RTJSVVUwTnpJMVF6WTFNelE0UVRrMU16QXdNRUk0UkRneE56RTRSZyJ9.eyJpc3MiOiJodHRwczovL3dwdGVzdC5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NTVkNDhjNTdkNWIwYWQwMjIzYzQwOGQ3IiwiYXVkIjoiZ1lTTmxVNFlDNFYxWVBkcXE4elBRY3VwNnJKdzFNYnQiLCJleHAiOjE0ODI5NjkwMzEsImlhdCI6MTQ4MjkzMzAzMSwibm9uY2UiOiJhc2ZkIn0.PPoh-pITcZ8qbF5l5rMZwXiwk5efbESuqZ0IfMUcamB6jdgLwTxq-HpOT_x5q6-sO1PBHchpSo1WHeDYMlRrOFd9bh741sUuBuXdPQZ3Zb0i2sNOAC2RFB1E11mZn7uNvVPGdPTg-Y5xppz30GSXoOJLbeBszfrVDCmPhpHKGGMPL1N6HV-3EEF77L34YNAi2JQ-b70nFK_dnYmmv0cYTGUxtGTHkl64UEDLi3u7bV-kbGky3iOOCzXKzDDY6BBKpCRTc2KlbrkO2A2PuDn27WVv1QCNEFHvJN7HxiDDzXOsaUmjrQ3sfrHhzD7S9BcCRkekRfD9g95SKD5J0Fj8NA&token_type=Bearer&refresh_token=kajshdgfkasdjhgfas'
       });
     });
 
@@ -220,8 +219,7 @@ describe('authok.plugins.cordova', function () {
         url: 'http://randomsite.com#somerandomhash'
       });
       this.events.loadstart({
-        url:
-          'https://wptest.authok.com/mobile#state=foo&access_token=asldkfjahsdlkfjhasd&token_type=Bearer'
+        url: 'https://wptest.authok.cn/mobile#state=foo&access_token=asldkfjahsdlkfjhasd&token_type=Bearer'
       });
     });
 
@@ -244,8 +242,7 @@ describe('authok.plugins.cordova', function () {
       );
 
       this.events.loadstart({
-        url:
-          'https://wptest.authok.com/mobile#error=some_error&error_description=with a description'
+        url: 'https://wptest.authok.cn/mobile#error=some_error&error_description=with a description'
       });
     });
 

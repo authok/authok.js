@@ -28,7 +28,7 @@ describe('authok.Management', function () {
 
     it('should check that token is set', function () {
       expect(function () {
-        var authok = new Management({ domain: 'me.authok.com' });
+        var authok = new Management({ domain: 'me.authok.cn' });
       }).to.throwException(function (e) {
         expect(e.message).to.be('token option is required');
       });
@@ -38,7 +38,7 @@ describe('authok.Management', function () {
   context('getUser options', function () {
     before(function () {
       this.authok = new Management({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         token: '...',
         _sendTelemetry: false
       });
@@ -64,7 +64,7 @@ describe('authok.Management', function () {
   context('getUser', function () {
     before(function () {
       this.authok = new Management({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         token: 'the_token',
         _sendTelemetry: false
       });
@@ -76,7 +76,7 @@ describe('authok.Management', function () {
 
     it('should fetch the user from the api', function (done) {
       sinon.stub(request, 'get').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/api/v2/users/authok|123');
+        expect(url).to.be('https://me.authok.cn/api/v2/users/authok|123');
         return new RequestMock({
           headers: {
             'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ describe('authok.Management', function () {
   context('patchUserMetadata options', function () {
     before(function () {
       this.authok = new Management({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         token: '...',
         _sendTelemetry: false
       });
@@ -141,7 +141,7 @@ describe('authok.Management', function () {
   context('patchUserMetadata', function () {
     before(function () {
       this.authok = new Management({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         token: 'the_token',
         _sendTelemetry: false
       });
@@ -153,7 +153,7 @@ describe('authok.Management', function () {
 
     it('should fetch the user from the api', function (done) {
       sinon.stub(request, 'patch').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/api/v2/users/authok|123');
+        expect(url).to.be('https://me.authok.cn/api/v2/users/authok|123');
         return new RequestMock({
           body: {
             user_metadata: { role: 'admin' }
@@ -174,25 +174,26 @@ describe('authok.Management', function () {
         });
       });
 
-      this.authok.patchUserMetadata('authok|123', { role: 'admin' }, function (
-        err,
-        user
-      ) {
-        expect(err).to.be(null);
-        expect(user).to.eql({
-          user_id: 'authok|123',
-          email: 'me@example.com',
-          user_metadata: { role: 'admin' }
-        });
-        done();
-      });
+      this.authok.patchUserMetadata(
+        'authok|123',
+        { role: 'admin' },
+        function (err, user) {
+          expect(err).to.be(null);
+          expect(user).to.eql({
+            user_id: 'authok|123',
+            email: 'me@example.com',
+            user_metadata: { role: 'admin' }
+          });
+          done();
+        }
+      );
     });
   });
 
   context('patchUserAttributes options', function () {
     before(function () {
       this.authok = new Management({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         token: '...',
         _sendTelemetry: false
       });
@@ -226,7 +227,7 @@ describe('authok.Management', function () {
   context('patchUserAttributes', function () {
     before(function () {
       this.authok = new Management({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         token: 'the_token',
         _sendTelemetry: false
       });
@@ -238,7 +239,7 @@ describe('authok.Management', function () {
 
     it('should fetch the user from the api', function (done) {
       sinon.stub(request, 'patch').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/api/v2/users/authok|123');
+        expect(url).to.be('https://me.authok.cn/api/v2/users/authok|123');
         return new RequestMock({
           body: {
             name: 'test name'
@@ -278,7 +279,7 @@ describe('authok.Management', function () {
   context('linkUsers options', function () {
     before(function () {
       this.authok = new Management({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         token: '...',
         _sendTelemetry: false
       });
@@ -312,7 +313,7 @@ describe('authok.Management', function () {
   context('linkUsers', function () {
     before(function () {
       this.authok = new Management({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         token: 'the_token',
         _sendTelemetry: false
       });
@@ -325,7 +326,7 @@ describe('authok.Management', function () {
     it('should fetch the user from the api', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
         expect(url).to.be(
-          'https://me.authok.com/api/v2/users/twitter|191919191919191/identities'
+          'https://me.authok.cn/api/v2/users/twitter|191919191919191/identities'
         );
         return new RequestMock({
           body: {

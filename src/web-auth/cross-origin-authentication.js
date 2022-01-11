@@ -41,7 +41,7 @@ function createKey(origin, coId) {
 
 /**
  * Logs in the user with username and password using the cross origin authentication (/co/authenticate) flow. You can use either `username` or `email` to identify the user, but `username` will take precedence over `email`.
- * Some browsers might not be able to successfully authenticate if 3rd party cookies are disabled in your browser. [See here for more information.]{@link https://authok.com/docs/cross-origin-authentication}.
+ * Some browsers might not be able to successfully authenticate if 3rd party cookies are disabled in your browser. [See here for more information.]{@link https://authok.cn/docs/cross-origin-authentication}.
  * After the /co/authenticate call, you'll have to use the {@link parseHash} function at the `redirectUri` specified in the constructor.
  *
  * @method login
@@ -80,7 +80,7 @@ CrossOriginAuthentication.prototype.login = function (options, cb) {
     var credentialType =
       options.credentialType ||
       this.baseOptions.credentialType ||
-      'http://authok.com/oauth/grant-type/password-realm';
+      'http://authok.cn/oauth/grant-type/password-realm';
 
     authenticateBody.realm = realm;
     authenticateBody.credential_type = credentialType;

@@ -146,15 +146,15 @@ Popup.prototype.callback = function (options) {
  * @param {String} options.redirectUri url that the authok will redirect after Auth with the Authorization Response
  * @param {String} options.responseType type of the response used by OAuth 2.0 flow. It can be any space separated list of the values `code`, `token`, `id_token`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html}
  * @param {String} [options.responseMode] how the Auth response is encoded and redirected back to the client. Supported values are `query`, `fragment` and `form_post`. The `query` value is only supported when `responseType` is `code`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#ResponseModes}
- * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.com/docs/protocols/oauth2/oauth-state}
- * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.com/docs/api-auth/tutorials/nonce}
+ * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.cn/docs/protocols/oauth2/oauth-state}
+ * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.cn/docs/api-auth/tutorials/nonce}
  * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
  * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
  * @param {String} [options.organization] the Id of an organization to log in to
  * @param {String} [options.invitation] the ID of an invitation to accept. This is available from the user invitation URL that is given when participating in a user invitation flow
  * @param {Boolean} [options.owp] determines if authok should render the relay page or not and the caller is responsible of handling the response.
  * @param {authorizeCallback} cb
- * @see {@link https://authok.com/docs/api/authentication#authorize-client}
+ * @see {@link https://authok.cn/docs/api/authentication#authorize-client}
  * @memberof Popup.prototype
  */
 Popup.prototype.authorize = function (options, cb) {

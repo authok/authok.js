@@ -1,4 +1,4 @@
-![](https://cdn.authok.com/resources/oss-source-large-2x.png)
+![](https://cdn.authok.cn/resources/oss-source-large-2x.png)
 
 # authok.js
 
@@ -34,7 +34,7 @@ From CDN:
 
 ```html
 <!-- Latest patch release -->
-<script src="https://cdn.authok.com/js/authok/9.18.0/authok.min.js"></script>
+<script src="https://cdn.authok.cn/js/authok/9.18.0/authok.min.js"></script>
 ```
 
 From [npm](https://npmjs.org):
@@ -64,7 +64,7 @@ All parameters can be considered optional unless otherwise stated.
 
 | Option                        | Type              | Description                                                                                                                                                                                                                                                                              |
 | :---------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `domain`                      | string (required) | Your authok account domain such as `'example.authok.com'` or `'example.eu.authok.com'`.                                                                                                                                                                                                  |
+| `domain`                      | string (required) | Your authok account domain such as `'example.authok.cn'` or `'example.eu.authok.cn'`.                                                                                                                                                                                                    |
 | `clientID`                    | string (required) | The Client ID found on your Application settings page.                                                                                                                                                                                                                                   |
 | `redirectUri`                 | string            | The URL where authok will call back to with the result of a successful or failed authentication. It must be added to the "Allowed Callback URLs" in your authok Application's settings.                                                                                                  |
 | `scope`                       | string            | The default scope used for all authorization requests.                                                                                                                                                                                                                                   |
@@ -98,7 +98,7 @@ authok.authorize({
 
 Parses a URL hash fragment to extract the result of an authok authentication response.
 
-**Note:** This method requires that your tokens are signed with **RS256**. Please check our [Migration Guide](https://authok.com/docs/libraries/authokjs/v8/migration-guide#switching-from-hs256-to-rs256) for more information.
+**Note:** This method requires that your tokens are signed with **RS256**. Please check our [Migration Guide](https://authok.cn/docs/libraries/authokjs/v8/migration-guide#switching-from-hs256-to-rs256) for more information.
 
 ```js
 authok.parseHash({ hash: window.location.hash }, function (err, authResult) {
@@ -138,11 +138,11 @@ authok.checkSession(
 
 The contents of `authResult` are identical to those returned by `parseHash()`.
 
-**Important:** If you're not using the hosted login page to do social logins, you have to use your own [social connection keys](https://manage.authok.com/#/connections/social). If you use authok's dev keys, you'll always get `login_required` as an error when calling `checkSession`.
+**Important:** If you're not using the hosted login page to do social logins, you have to use your own [social connection keys](https://manage.authok.cn/#/connections/social). If you use authok's dev keys, you'll always get `login_required` as an error when calling `checkSession`.
 
 **Important:** Because there is no redirect in this method, `responseType: 'code'` is not supported and will throw an error.
 
-Remember to add the URL where the authorization request originates from to the Allowed Web Origins list of your authok Application in the [Dashboard](https://manage.authok.com/) under your Applications's **Settings**.
+Remember to add the URL where the authorization request originates from to the Allowed Web Origins list of your authok Application in the [Dashboard](https://manage.authok.cn/) under your Applications's **Settings**.
 
 #### client.login(options, callback)
 
@@ -152,7 +152,7 @@ Authenticates a user with username and password in a realm using `/oauth/token`.
 authok.client.login(
   {
     realm: 'Username-Password-Authentication', //connection name or HRD domain
-    username: 'info@authok.com',
+    username: 'info@authok.cn',
     password: 'areallystrongpassword',
     audience: 'https://mystore.com/api/v2',
     scope: 'read:order write:order'
@@ -175,7 +175,7 @@ To do this, specify the `onRedirecting` function in the options and ensure that 
 authok.client.login(
   {
     realm: 'Username-Password-Authentication', //connection name or HRD domain
-    username: 'info@authok.com',
+    username: 'info@authok.cn',
     password: 'areallystrongpassword',
     onRedirecting: function (done) {
       // Your custom code here
@@ -205,19 +205,19 @@ var authok = new authok.Authentication({
 
 #### buildAuthorizeUrl(options)
 
-Builds and returns the `/authorize` url in order to initialize a new authN/authZ transaction. [https://authok.com/docs/api/authentication#database-ad-ldap-passive-](https://authok.com/docs/api/authentication#database-ad-ldap-passive-)
+Builds and returns the `/authorize` url in order to initialize a new authN/authZ transaction. [https://authok.cn/docs/api/authentication#database-ad-ldap-passive-](https://authok.cn/docs/api/authentication#database-ad-ldap-passive-)
 
 #### buildLogoutUrl(options)
 
-Builds and returns the Logout url in order to initialize a new authN/authZ transaction. [https://authok.com/docs/api/authentication#logout](https://authok.com/docs/api/authentication#logout)
+Builds and returns the Logout url in order to initialize a new authN/authZ transaction. [https://authok.cn/docs/api/authentication#logout](https://authok.cn/docs/api/authentication#logout)
 
 #### loginWithDefaultDirectory(options, cb)
 
-Makes a call to the `oauth/token` endpoint with `password` grant type. [https://authok.com/docs/api-auth/grant/password](https://authok.com/docs/api-auth/grant/password)
+Makes a call to the `oauth/token` endpoint with `password` grant type. [https://authok.cn/docs/api-auth/grant/password](https://authok.cn/docs/api-auth/grant/password)
 
 #### login(options, cb)
 
-Makes a call to the `oauth/token` endpoint with `https://authok.com/oauth/grant-type/password-realm` grant type.
+Makes a call to the `oauth/token` endpoint with `https://authok.cn/oauth/grant-type/password-realm` grant type.
 
 #### oauthToken(options, cb)
 
@@ -229,11 +229,11 @@ Makes a call to the `/userinfo` endpoint and returns the user profile.
 
 ## authok.Management
 
-Provides an API Client for the authok Management API (only methods meant to be used from the client with the user token). You should use an `access_token` with the `https://YOUR_DOMAIN.authok.com/api/v2/` audience to make this work. For more information, read [the user management section of the authok.js documentation](https://authok.com/docs/libraries/authokjs/v9#user-management).
+Provides an API Client for the authok Management API (only methods meant to be used from the client with the user token). You should use an `access_token` with the `https://YOUR_DOMAIN.authok.cn/api/v2/` audience to make this work. For more information, read [the user management section of the authok.js documentation](https://authok.cn/docs/libraries/authokjs/v9#user-management).
 
 ## Passwordless Login
 
-For information on how to implement Passwordless Login with this SDK, please read [Passwordless Login on authok Docs](https://authok.com/docs/libraries/authokjs#passwordless-login).
+For information on how to implement Passwordless Login with this SDK, please read [Passwordless Login on authok Docs](https://authok.cn/docs/libraries/authokjs#passwordless-login).
 
 ### Initialize
 
@@ -246,14 +246,14 @@ var authok = new authok.Management({
 
 ### API
 
-- **getUser(userId, cb)**: Returns the user profile. [https://authok.com/docs/api/management/v2#!/Users/get_users_by_id](https://authok.com/docs/api/management/v2#!/Users/get_users_by_id)
-- **patchUserMetadata(userId, userMetadata, cb)**: Updates the user metadata. It will patch the user metadata with the attributes sent. [https://authok.com/docs/api/management/v2#!/Users/patch_users_by_id](https://authok.com/docs/api/management/v2#!/Users/patch_users_by_id)
-- **patchUserAttributes(userId, user, cb)**: Updates the user attributes. It will patch the root attributes that the server allows it. To check what attributes can be patched, go to [https://authok.com/docs/api/management/v2#!/Users/patch_users_by_id](https://authok.com/docs/api/management/v2#!/Users/patch_users_by_id)
-- **linkUser(userId, secondaryUserToken, cb)**: Link two users. [https://authok.com/docs/api/management/v2#!/Users/post_identities](https://authok.com/docs/api/management/v2#!/Users/post_identities)
+- **getUser(userId, cb)**: Returns the user profile. [https://authok.cn/docs/api/management/v2#!/Users/get_users_by_id](https://authok.cn/docs/api/management/v2#!/Users/get_users_by_id)
+- **patchUserMetadata(userId, userMetadata, cb)**: Updates the user metadata. It will patch the user metadata with the attributes sent. [https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id](https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id)
+- **patchUserAttributes(userId, user, cb)**: Updates the user attributes. It will patch the root attributes that the server allows it. To check what attributes can be patched, go to [https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id](https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id)
+- **linkUser(userId, secondaryUserToken, cb)**: Link two users. [https://authok.cn/docs/api/management/v2#!/Users/post_identities](https://authok.cn/docs/api/management/v2#!/Users/post_identities)
 
 ## Organizations
 
-[Organizations](https://authok.com/docs/organizations) is a set of features that provide better support for developers who build and maintain SaaS and Business-to-Business (B2B) applications.
+[Organizations](https://authok.cn/docs/organizations) is a set of features that provide better support for developers who build and maintain SaaS and Business-to-Business (B2B) applications.
 
 ### Log in to an organization
 
@@ -293,13 +293,13 @@ if (organization && invitation) {
 
 ## Documentation
 
-For a complete reference and examples please check our [docs](https://authok.com/docs/libraries/authokjs).
+For a complete reference and examples please check our [docs](https://authok.cn/docs/libraries/authokjs).
 
 ## Migration
 
-If you need help migrating to v9, please refer to the [v9 Migration Guide](https://authok.com/docs/libraries/authokjs/v9/migration-guide).
+If you need help migrating to v9, please refer to the [v9 Migration Guide](https://authok.cn/docs/libraries/authokjs/v9/migration-guide).
 
-If you need help migrating to v8, please refer to the [v8 Migration Guide](https://authok.com/docs/libraries/authokjs/v8/migration-guide).
+If you need help migrating to v8, please refer to the [v8 Migration Guide](https://authok.cn/docs/libraries/authokjs/v8/migration-guide).
 
 ## Develop
 
@@ -324,13 +324,13 @@ See [.circleci/config.yml](.circleci/config.yml) for additional checks that migh
 
 ## Issue Reporting
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://authok.com/whitehat) details the procedure for disclosing security issues.
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://authok.cn/whitehat) details the procedure for disclosing security issues.
 
-For authok related questions/support please use the [Support Center](https://support.authok.com).
+For authok related questions/support please use the [Support Center](https://support.authok.cn).
 
 ## Author
 
-[authok](https://authok.com)
+[authok](https://authok.cn)
 
 ## License
 

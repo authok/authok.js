@@ -12,7 +12,7 @@ context('TransactionManager', function () {
     sinon.stub(windowHelper, 'getWindow').callsFake(function () {
       return { location: { host: 'myapp.com' } };
     });
-    this.tm = new TransactionManager({ domain: 'myapp.authok.com' });
+    this.tm = new TransactionManager({ domain: 'myapp.authok.cn' });
   });
   afterEach(function () {
     windowHelper.getWindow.restore();
@@ -245,7 +245,7 @@ context('TransactionManager', function () {
       });
       it('stores state with expires option equal to X mins if passed in', function () {
         this.tm = new TransactionManager({
-          domain: 'myapp.authok.com',
+          domain: 'myapp.authok.cn',
           stateExpiration: 60 //minutes
         });
         this.tm.generateTransaction(

@@ -1,5 +1,5 @@
 /**
- * @authok/authok-js v9.18.2
+ * @authok/authok-js v9.18.4
  * Author: authok
  * Date: 2022-01-11
  * License: MIT
@@ -5637,7 +5637,7 @@
 	  'code_challenge_method',
 
 	  // ADDITIONAL_PARAMETERS:
-	  // https://authok.com/docs/api/authentication?javascript#social
+	  // https://authok.cn/docs/api/authentication?javascript#social
 	  'access_type',
 	  'display'
 	];
@@ -5996,7 +5996,7 @@
 	        windowHelper.getWindow().location.hostname === 'localhost'
 	      ) {
 	        _this.warn.warning(
-	          "Consent Required. Consent can't be skipped on localhost. Read more here: https://authok.com/docs/api-auth/user-consent#skipping-consent-for-first-party-clients"
+	          "Consent Required. Consent can't be skipped on localhost. Read more here: https://authok.cn/docs/api-auth/user-consent#skipping-consent-for-first-party-clients"
 	        );
 	      }
 	      _this.webAuth.transactionManager.clearTransaction(error.state);
@@ -6038,7 +6038,7 @@
 
 	/**
 	 * Logs in the user with username and password using the cross origin authentication (/co/authenticate) flow. You can use either `username` or `email` to identify the user, but `username` will take precedence over `email`.
-	 * Some browsers might not be able to successfully authenticate if 3rd party cookies are disabled in your browser. [See here for more information.]{@link https://authok.com/docs/cross-origin-authentication}.
+	 * Some browsers might not be able to successfully authenticate if 3rd party cookies are disabled in your browser. [See here for more information.]{@link https://authok.cn/docs/cross-origin-authentication}.
 	 * After the /co/authenticate call, you'll have to use the {@link parseHash} function at the `redirectUri` specified in the constructor.
 	 *
 	 * @method login
@@ -6077,7 +6077,7 @@
 	    var credentialType =
 	      options.credentialType ||
 	      this.baseOptions.credentialType ||
-	      'http://authok.com/oauth/grant-type/password-realm';
+	      'http://authok.cn/oauth/grant-type/password-realm';
 
 	    authenticateBody.realm = realm;
 	    authenticateBody.credential_type = credentialType;
@@ -6202,7 +6202,7 @@
 
 	/**
 	 * username/password 进行用户登录, 采用跨域认证 (/co/authenticate) 流程. 你可以用 `username` 或 `email` 来标识用户, `username` 的优先级高于 `email`.
-	 * 部分浏览器可能无法成功认证，如果第三方 cookie 被浏览器禁用的话. [查看这里获取更多信息.]{@link https://authok.com/docs/cross-origin-authentication}.
+	 * 部分浏览器可能无法成功认证，如果第三方 cookie 被浏览器禁用的话. [查看这里获取更多信息.]{@link https://authok.cn/docs/cross-origin-authentication}.
 	 * 调用 /co/authenticate 之后, you'll have to use the {@link parseHash} function at the `redirectUri` specified in the constructor.
 	 *
 	 * @method loginWithCredentials
@@ -6811,15 +6811,15 @@
 	 * @param {String} options.redirectUri url that the authok will redirect after Auth with the Authorization Response
 	 * @param {String} options.responseType type of the response used by OAuth 2.0 flow. It can be any space separated list of the values `code`, `token`, `id_token`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html}
 	 * @param {String} [options.responseMode] how the Auth response is encoded and redirected back to the client. Supported values are `query`, `fragment` and `form_post`. The `query` value is only supported when `responseType` is `code`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#ResponseModes}
-	 * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.com/docs/protocols/oauth2/oauth-state}
-	 * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.com/docs/api-auth/tutorials/nonce}
+	 * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.cn/docs/protocols/oauth2/oauth-state}
+	 * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.cn/docs/api-auth/tutorials/nonce}
 	 * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
 	 * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
 	 * @param {String} [options.organization] the Id of an organization to log in to
 	 * @param {String} [options.invitation] the ID of an invitation to accept. This is available from the user invitation URL that is given when participating in a user invitation flow
 	 * @param {Boolean} [options.owp] determines if authok should render the relay page or not and the caller is responsible of handling the response.
 	 * @param {authorizeCallback} cb
-	 * @see {@link https://authok.com/docs/api/authentication#authorize-client}
+	 * @see {@link https://authok.cn/docs/api/authentication#authorize-client}
 	 * @memberof Popup.prototype
 	 */
 	Popup.prototype.authorize = function (options, cb) {
@@ -7515,7 +7515,7 @@
 	 * @param {String} [options.invitation] the ID of an invitation to accept. This is available from the user invitation URL that is given when participating in a user invitation flow
 	 * @param {Array} [options.plugins]
 	 * @param {Number} [options._timesToRetryFailedRequests] Number of times to retry a failed request, according to {@link https://github.com/visionmedia/superagent/blob/master/lib/request-base.js}
-	 * @see {@link https://authok.com/docs/api/authentication}
+	 * @see {@link https://authok.cn/docs/api/authentication}
 	 */
 	function WebAuth(options) {
 	  /* eslint-disable */
@@ -7630,9 +7630,10 @@
 	      ? this.baseOptions._sendTelemetry
 	      : true;
 
-	  this.baseOptions._timesToRetryFailedRequests = options._timesToRetryFailedRequests
-	    ? parseInt(options._timesToRetryFailedRequests)
-	    : 0;
+	  this.baseOptions._timesToRetryFailedRequests =
+	    options._timesToRetryFailedRequests
+	      ? parseInt(options._timesToRetryFailedRequests)
+	      : 0;
 
 	  this.baseOptions.tenant =
 	    (this.baseOptions.overrides && this.baseOptions.overrides.__tenant) ||
@@ -7827,109 +7828,110 @@
 	    return callback(null, null);
 	  }
 
-	  return this.validateToken(parsedHash.id_token, transactionNonce, function (
-	    validationError,
-	    payload
-	  ) {
-	    if (!validationError) {
-	      // Verify the organization
-	      if (transactionOrganization) {
-	        if (!payload.org_id) {
-	          return callback(
-	            error.invalidToken(
-	              'Organization Id (org_id) claim must be a string present in the ID token'
-	            )
-	          );
+	  return this.validateToken(
+	    parsedHash.id_token,
+	    transactionNonce,
+	    function (validationError, payload) {
+	      if (!validationError) {
+	        // Verify the organization
+	        if (transactionOrganization) {
+	          if (!payload.org_id) {
+	            return callback(
+	              error.invalidToken(
+	                'Organization Id (org_id) claim must be a string present in the ID token'
+	              )
+	            );
+	          }
+
+	          if (payload.org_id !== transactionOrganization) {
+	            return callback(
+	              error.invalidToken(
+	                'Organization Id (org_id) claim value mismatch in the ID token; expected "' +
+	                  transactionOrganization +
+	                  '", found "' +
+	                  payload.org_id +
+	                  '"'
+	              )
+	            );
+	          }
 	        }
 
-	        if (payload.org_id !== transactionOrganization) {
-	          return callback(
-	            error.invalidToken(
-	              'Organization Id (org_id) claim value mismatch in the ID token; expected "' +
-	                transactionOrganization +
-	                '", found "' +
-	                payload.org_id +
-	                '"'
-	            )
-	          );
+	        if (!parsedHash.access_token) {
+	          return callback(null, payload);
 	        }
+
+	        // id_token's generated by non-oidc applications don't have at_hash
+	        if (!payload.at_hash) {
+	          return callback(null, payload);
+	        }
+
+	        // here we're absolutely sure that the id_token's alg is RS256
+	        // and that the id_token is valid, so we can check the access_token
+	        return new I().validateAccessToken(
+	          parsedHash.access_token,
+	          'RS256',
+	          payload.at_hash,
+	          function (err) {
+	            if (err) {
+	              return callback(error.invalidToken(err.message));
+	            }
+	            return callback(null, payload);
+	          }
+	        );
+	      }
+
+	      if (
+	        validationError.error !== 'invalid_token' ||
+	        (validationError.errorDescription &&
+	          validationError.errorDescription.indexOf(
+	            'Nonce (nonce) claim value mismatch in the ID token'
+	          ) > -1)
+	      ) {
+	        return callback(validationError);
+	      }
+
+	      // if it's an invalid_token error, decode the token
+	      var decodedToken = new I().decode(parsedHash.id_token);
+
+	      // if the alg is not HS256, return the raw error
+	      if (decodedToken.header.alg !== 'HS256') {
+	        return callback(validationError);
+	      }
+
+	      if ((decodedToken.payload.nonce || null) !== transactionNonce) {
+	        return callback({
+	          error: 'invalid_token',
+	          errorDescription:
+	            'Nonce (nonce) claim value mismatch in the ID token; expected "' +
+	            transactionNonce +
+	            '", found "' +
+	            decodedToken.payload.nonce +
+	            '"'
+	        });
 	      }
 
 	      if (!parsedHash.access_token) {
-	        return callback(null, payload);
+	        var noAccessTokenError = {
+	          error: 'invalid_token',
+	          description:
+	            'The id_token cannot be validated because it was signed with the HS256 algorithm and public clients (like a browser) can’t store secrets. Please read the associated doc for possible ways to fix this. Read more: https://authok.cn/docs/errors/libraries/authok-js/invalid-token#parsing-an-hs256-signed-id-token-without-an-access-token'
+	        };
+	        return callback(noAccessTokenError);
 	      }
 
-	      // id_token's generated by non-oidc applications don't have at_hash
-	      if (!payload.at_hash) {
-	        return callback(null, payload);
-	      }
-
-	      // here we're absolutely sure that the id_token's alg is RS256
-	      // and that the id_token is valid, so we can check the access_token
-	      return new I().validateAccessToken(
+	      // if the alg is HS256, use the /userinfo endpoint to build the payload
+	      return _this.client.userInfo(
 	        parsedHash.access_token,
-	        'RS256',
-	        payload.at_hash,
-	        function (err) {
-	          if (err) {
-	            return callback(error.invalidToken(err.message));
+	        function (errUserInfo, profile) {
+	          // if the /userinfo request fails, use the validationError instead
+	          if (errUserInfo) {
+	            return callback(errUserInfo);
 	          }
-	          return callback(null, payload);
+	          return callback(null, profile);
 	        }
 	      );
 	    }
-
-	    if (
-	      validationError.error !== 'invalid_token' ||
-	      (validationError.errorDescription &&
-	        validationError.errorDescription.indexOf(
-	          'Nonce (nonce) claim value mismatch in the ID token'
-	        ) > -1)
-	    ) {
-	      return callback(validationError);
-	    }
-
-	    // if it's an invalid_token error, decode the token
-	    var decodedToken = new I().decode(parsedHash.id_token);
-
-	    // if the alg is not HS256, return the raw error
-	    if (decodedToken.header.alg !== 'HS256') {
-	      return callback(validationError);
-	    }
-
-	    if ((decodedToken.payload.nonce || null) !== transactionNonce) {
-	      return callback({
-	        error: 'invalid_token',
-	        errorDescription:
-	          'Nonce (nonce) claim value mismatch in the ID token; expected "' +
-	          transactionNonce +
-	          '", found "' +
-	          decodedToken.payload.nonce +
-	          '"'
-	      });
-	    }
-
-	    if (!parsedHash.access_token) {
-	      var noAccessTokenError = {
-	        error: 'invalid_token',
-	        description:
-	          'The id_token cannot be validated because it was signed with the HS256 algorithm and public clients (like a browser) can’t store secrets. Please read the associated doc for possible ways to fix this. Read more: https://authok.com/docs/errors/libraries/authok-js/invalid-token#parsing-an-hs256-signed-id-token-without-an-access-token'
-	      };
-	      return callback(noAccessTokenError);
-	    }
-
-	    // if the alg is HS256, use the /userinfo endpoint to build the payload
-	    return _this.client.userInfo(parsedHash.access_token, function (
-	      errUserInfo,
-	      profile
-	    ) {
-	      // if the /userinfo request fails, use the validationError instead
-	      if (errUserInfo) {
-	        return callback(errUserInfo);
-	      }
-	      return callback(null, profile);
-	    });
-	  });
+	  );
 	};
 
 	function buildParseHashResponse(qsParams, appState, token) {
@@ -7983,7 +7985,7 @@
 	/**
 	 * Executes a silent authentication transaction under the hood in order to fetch a new tokens for the current session.
 	 * This method requires that all Auth is performed with {@link authorize}
-	 * Watch out! If you're not using the hosted login page to do social logins, you have to use your own [social connection keys](https://manage.authok.com/#/connections/social). If you use authok's dev keys, you'll always get `login_required` as an error when calling this method.
+	 * Watch out! If you're not using the hosted login page to do social logins, you have to use your own [social connection keys](https://manage.authok.cn/#/connections/social). If you use authok's dev keys, you'll always get `login_required` as an error when calling this method.
 	 *
 	 * @method renewAuth
 	 * @param {Object} [options]
@@ -7991,8 +7993,8 @@
 	 * @param {String} [options.redirectUri] url that the authok will redirect after Auth with the Authorization Response
 	 * @param {String} [options.responseType] type of the response used by OAuth 2.0 flow. It can be any space separated list of the values `code`, `token`, `id_token`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html}
 	 * @param {String} [options.responseMode] how the Auth response is encoded and redirected back to the client. Supported values are `query`, `fragment` and `form_post`. The `query` value is only supported when `responseType` is `code`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#ResponseModes}
-	 * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.com/docs/protocols/oauth2/oauth-state}
-	 * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.com/docs/api-auth/tutorials/nonce}
+	 * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.cn/docs/protocols/oauth2/oauth-state}
+	 * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.cn/docs/api-auth/tutorials/nonce}
 	 * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
 	 * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
 	 * @param {String} [options.postMessageDataType] identifier data type to look for in postMessage event data, where events are initiated from silent callback urls, before accepting a message event is the event expected. A value of false means any postMessage event will trigger a callback.
@@ -8000,7 +8002,7 @@
 	 * @param {String} [options.timeout] value in milliseconds used to timeout when the `/authorize` call is failing as part of the silent authentication with postmessage enabled due to a configuration.
 	 * @param {Boolean} [options.usePostMessage] use postMessage to comunicate between the silent callback and the SPA. When false the SDK will attempt to parse the url hash should ignore the url hash and no extra behaviour is needed
 	 * @param {authorizeCallback} cb
-	 * @see {@link https://authok.com/docs/api/authentication#authorize-client}
+	 * @see {@link https://authok.cn/docs/api/authentication#authorize-client}
 	 * @memberof WebAuth.prototype
 	 */
 	WebAuth.prototype.renewAuth = function (options, cb) {
@@ -8069,13 +8071,13 @@
 	 * @param {Object} [options]
 	 * @param {String} [options.clientID] the Client ID found on your Application settings page
 	 * @param {String} [options.responseType] type of the response used by OAuth 2.0 flow. It can be any space separated list of the values `code`, `token`, `id_token`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html}
-	 * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.com/docs/protocols/oauth2/oauth-state}
-	 * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.com/docs/api-auth/tutorials/nonce}
+	 * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.cn/docs/protocols/oauth2/oauth-state}
+	 * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.cn/docs/api-auth/tutorials/nonce}
 	 * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
 	 * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
 	 * @param {String} [options.timeout] value in milliseconds used to timeout when the `/authorize` call is failing as part of the silent authentication with postmessage enabled due to a configuration.
 	 * @param {checkSessionCallback} cb
-	 * @see {@link https://authok.com/docs/libraries/authokjs/v9#using-checksession-to-acquire-new-tokens}
+	 * @see {@link https://authok.cn/docs/libraries/authokjs/v9#using-checksession-to-acquire-new-tokens}
 	 * @memberof WebAuth.prototype
 	 */
 	WebAuth.prototype.checkSession = function (options, cb) {
@@ -8136,7 +8138,7 @@
 	 * @param {String} options.email address where the user will receive the change password email. It should match the user's email in authok
 	 * @param {String} options.connection name of the connection where the user was created
 	 * @param {changePasswordCallback} cb
-	 * @see   {@link https://authok.com/docs/api/authentication#change-password}
+	 * @see   {@link https://authok.cn/docs/api/authentication#change-password}
 	 * @memberof WebAuth.prototype
 	 */
 	WebAuth.prototype.changePassword = function (options, cb) {
@@ -8155,7 +8157,7 @@
 	 * @param {Object} [options.authParams] additional Auth parameters when using `link`
 	 * @param {Object} [options.xRequestLanguage] value for the X-Request-Language header. If not set, the language is detected using the client browser.
 	 * @param {Function} cb
-	 * @see   {@link https://authok.com/docs/api/authentication#passwordless}
+	 * @see   {@link https://authok.cn/docs/api/authentication#passwordless}
 	 * @memberof WebAuth.prototype
 	 */
 	WebAuth.prototype.passwordlessStart = function (options, cb) {
@@ -8191,7 +8193,7 @@
 	 * @param {String} [options.nickname] The user's nickname.
 	 * @param {String} [options.picture] A URI pointing to the user's picture.
 	 * @param {signUpCallback} cb
-	 * @see   {@link https://authok.com/docs/api/authentication#signup}
+	 * @see   {@link https://authok.cn/docs/api/authentication#signup}
 	 * @memberof WebAuth.prototype
 	 */
 	WebAuth.prototype.signup = function (options, cb) {
@@ -8208,14 +8210,14 @@
 	 * @param {String} options.redirectUri url that the authok will redirect after Auth with the Authorization Response
 	 * @param {String} options.responseType type of the response used by OAuth 2.0 flow. It can be any space separated list of the values `code`, `token`, `id_token`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html}
 	 * @param {String} [options.responseMode] how the Auth response is encoded and redirected back to the client. Supported values are `query`, `fragment` and `form_post`. The `query` value is only supported when `responseType` is `code`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#ResponseModes}
-	 * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.com/docs/protocols/oauth2/oauth-state}
-	 * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.com/docs/api-auth/tutorials/nonce}
+	 * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.cn/docs/protocols/oauth2/oauth-state}
+	 * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.cn/docs/api-auth/tutorials/nonce}
 	 * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
 	 * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
 	 * @param {String} [options.organization] the Id of an organization to log in to
 	 * @param {String} [options.invitation] the ID of an invitation to accept. This is available from the user invitation URL that is given when participating in a user invitation flow
 	 * @param {Object} [options.appState] any values that you want back on the authentication response
-	 * @see {@link https://authok.com/docs/api/authentication#authorize-client}
+	 * @see {@link https://authok.cn/docs/api/authentication#authorize-client}
 	 * @memberof WebAuth.prototype
 	 */
 	WebAuth.prototype.authorize = function (options) {
@@ -8263,8 +8265,8 @@
 	 * @param {String} options.password user password
 	 * @param {String} options.connection name of the connection where the user will be created
 	 * @param {tokenCallback} cb
-	 * @see   {@link https://authok.com/docs/api/authentication#signup}
-	 * @see   {@link https://authok.com/docs/api-auth/grant/password}
+	 * @see   {@link https://authok.cn/docs/api/authentication#signup}
+	 * @see   {@link https://authok.cn/docs/api-auth/grant/password}
 	 * @memberof WebAuth.prototype
 	 */
 	WebAuth.prototype.signupAndAuthorize = function (options, cb) {
@@ -8301,10 +8303,10 @@
 	 * - If you're calling this method outside the Universal Login Page, it will use the cross origin authentication (/co/authenticate) flow
 	 * You can use either `username` or `email` to identify the user, but `username` will take precedence over `email`.
 	 * After the redirect to `redirectUri`, use {@link parseHash} to retrieve the authentication data.
-	 * **Notice that when using the cross origin authentication flow, some browsers might not be able to successfully authenticate if 3rd party cookies are disabled. [See here for more information.]{@link https://authok.com/docs/cross-origin-authentication}.**
+	 * **Notice that when using the cross origin authentication flow, some browsers might not be able to successfully authenticate if 3rd party cookies are disabled. [See here for more information.]{@link https://authok.cn/docs/cross-origin-authentication}.**
 	 *
 	 * @method login
-	 * @see Requires [`Implicit` grant]{@link https://authok.com/docs/api-auth/grant/implicit}. For more information, read {@link https://authok.com/docs/clients/client-grant-types}.
+	 * @see Requires [`Implicit` grant]{@link https://authok.cn/docs/api-auth/grant/implicit}. For more information, read {@link https://authok.cn/docs/clients/client-grant-types}.
 	 * @param {Object} options options used in the {@link authorize} call after the login_ticket is acquired
 	 * @param {String} [options.username] Username (mutually exclusive with email)
 	 * @param {String} [options.email] Email (mutually exclusive with username)
@@ -8391,7 +8393,7 @@
 	  } else {
 	    var crossOriginOptions = objectHelper.extend(
 	      {
-	        credentialType: 'http://authok.com/oauth/grant-type/passwordless/otp',
+	        credentialType: 'http://authok.cn/oauth/grant-type/passwordless/otp',
 	        realm: params.connection,
 	        username: params.email || params.phoneNumber,
 	        otp: params.verificationCode
@@ -8442,7 +8444,7 @@
 	 * @param {String} [options.clientID] the Client ID found on your Application settings page
 	 * @param {String} [options.returnTo] URL to be redirected after the logout
 	 * @param {Boolean} [options.federated] tells authok if it should logout the user also from the IdP.
-	 * @see   {@link https://authok.com/docs/api/authentication#logout}
+	 * @see   {@link https://authok.cn/docs/api/authentication#logout}
 	 * @memberof WebAuth.prototype
 	 */
 	WebAuth.prototype.logout = function (options) {
@@ -8782,7 +8784,7 @@
 	 * @param {String} options.connection name of the connection where the user will be created
 	 * @param {Object} [options.user_metadata] additional signup attributes used for creating the user. Will be stored in `user_metadata`
 	 * @param {signUpCallback} cb
-	 * @see   {@link https://authok.com/docs/api/authentication#signup}
+	 * @see   {@link https://authok.cn/docs/api/authentication#signup}
 	 * @ignore
 	 */
 	DBConnection.prototype.signup = function (options, cb) {
@@ -8838,7 +8840,7 @@
 	 * @param {String} options.email address where the user will receive the change password email. It should match the user's email in authok
 	 * @param {String} options.connection name of the connection where the user was created
 	 * @param {changePasswordCallback} cb
-	 * @see   {@link https://authok.com/docs/api/authentication#change-password}
+	 * @see   {@link https://authok.cn/docs/api/authentication#change-password}
 	 * @ignore
 	 */
 	DBConnection.prototype.changePassword = function (options, cb) {
@@ -8877,7 +8879,7 @@
 	 * @param {String} [options.responseMode] how the Auth response is encoded and redirected back to the client. Supported values are `query`, `fragment` and `form_post`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#ResponseModes}
 	 * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
 	 * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
-	 * @see {@link https://authok.com/docs/api/authentication}
+	 * @see {@link https://authok.cn/docs/api/authentication}
 	 */
 	function Authentication(authok, options) {
 	  // If we have two arguments, the first one is a WebAuth instance, so we assign that
@@ -8971,12 +8973,12 @@
 	 * @param {String} options.redirectUri url that the authok will redirect after Auth with the Authorization Response
 	 * @param {String} options.responseType type of the response used by OAuth 2.0 flow. It can be any space separated list of the values `code`, `token`, `id_token`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html}
 	 * @param {String} [options.responseMode] how the Auth response is encoded and redirected back to the client. Supported values are `query`, `fragment` and `form_post`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#ResponseModes}
-	 * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.com/docs/protocols/oauth2/oauth-state}
-	 * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.com/docs/api-auth/tutorials/nonce}
+	 * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.cn/docs/protocols/oauth2/oauth-state}
+	 * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.cn/docs/api-auth/tutorials/nonce}
 	 * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
 	 * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
-	 * @see {@link https://authok.com/docs/api/authentication#authorize-client}
-	 * @see {@link https://authok.com/docs/api/authentication#social}
+	 * @see {@link https://authok.cn/docs/api/authentication#authorize-client}
+	 * @see {@link https://authok.cn/docs/api/authentication#social}
 	 * @memberof Authentication.prototype
 	 */
 	Authentication.prototype.buildAuthorizeUrl = function (options) {
@@ -9075,7 +9077,7 @@
 	 * @param {String} [options.clientID] the Client ID found on your Application settings page
 	 * @param {String} [options.returnTo] URL to be redirected after the logout
 	 * @param {Boolean} [options.federated] tells authok if it should logout the user also from the IdP.
-	 * @see {@link https://authok.com/docs/api/authentication#logout}
+	 * @see {@link https://authok.cn/docs/api/authentication#logout}
 	 * @memberof Authentication.prototype
 	 */
 	Authentication.prototype.buildLogoutUrl = function (options) {
@@ -9145,7 +9147,7 @@
 	 * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
 	 * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
 	 * @param {tokenCallback} cb function called with the result of the request
-	 * @see Requires [`password` grant]{@link https://authok.com/docs/api-auth/grant/password}. For more information, read {@link https://authok.com/docs/clients/client-grant-types}.
+	 * @see Requires [`password` grant]{@link https://authok.cn/docs/api-auth/grant/password}. For more information, read {@link https://authok.cn/docs/clients/client-grant-types}.
 	 * @memberof Authentication.prototype
 	 */
 	Authentication.prototype.loginWithDefaultDirectory = function (options, cb) {
@@ -9184,7 +9186,7 @@
 	 * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
 	 * @param {Object} options.realm the HRD domain or the connection name where the user belongs to. e.g. `Username-Password-Authentication`
 	 * @param {tokenCallback} cb function called with the result of the request
-	 * @see Requires [`http://authok.com/oauth/grant-type/password-realm` grant]{@link https://authok.com/docs/api-auth/grant/password#realm-support}. For more information, read {@link https://authok.com/docs/clients/client-grant-types}.
+	 * @see Requires [`http://authok.cn/oauth/grant-type/password-realm` grant]{@link https://authok.cn/docs/api-auth/grant/password#realm-support}. For more information, read {@link https://authok.cn/docs/clients/client-grant-types}.
 	 * @memberof Authentication.prototype
 	 */
 	Authentication.prototype.login = function (options, cb) {
@@ -9208,7 +9210,7 @@
 	    }
 	  );
 
-	  options.grantType = 'http://authok.com/oauth/grant-type/password-realm';
+	  options.grantType = 'http://authok.cn/oauth/grant-type/password-realm';
 
 	  return this.oauthToken(options, cb);
 	};
@@ -9387,7 +9389,7 @@
 	 * @method userInfo
 	 * @param {String} accessToken token issued to a user after Auth
 	 * @param {userInfoCallback} cb
-	 * @see   {@link https://authok.com/docs/api/authentication#get-user-info}
+	 * @see   {@link https://authok.cn/docs/api/authentication#get-user-info}
 	 * @memberof Authentication.prototype
 	 */
 	Authentication.prototype.userInfo = function (accessToken, cb) {
@@ -9450,8 +9452,8 @@
 	 * @param {String} [options.scope] either `openid` or `openid profile email`
 	 * @param {String} [options.apiType] the api to be called
 	 * @param {delegationCallback} cb
-	 * @see   {@link https://authok.com/docs/api/authentication#delegation}
-	 * @see Requires [http://authok.com/oauth/grant-type/password-realm]{@link https://authok.com/docs/api-auth/grant/password#realm-support}. For more information, read {@link https://authok.com/docs/clients/client-grant-types}.
+	 * @see   {@link https://authok.cn/docs/api/authentication#delegation}
+	 * @see Requires [http://authok.cn/oauth/grant-type/password-realm]{@link https://authok.cn/docs/api-auth/grant/password#realm-support}. For more information, read {@link https://authok.cn/docs/clients/client-grant-types}.
 	 * @memberof Authentication.prototype
 	 */
 	Authentication.prototype.delegation = function (options, cb) {
@@ -9550,7 +9552,7 @@
 	 * @method getUser
 	 * @param {String} userId identifier of the user to retrieve
 	 * @param {userCallback} cb
-	 * @see https://authok.com/docs/api/management/v2#!/Users/get_users_by_id
+	 * @see https://authok.cn/docs/api/management/v2#!/Users/get_users_by_id
 	 * @memberof Management.prototype
 	 */
 	Management.prototype.getUser = function (userId, cb) {
@@ -9575,7 +9577,7 @@
 	 * @param {String} userId
 	 * @param {Object} userMetadata
 	 * @param {userCallback} cb
-	 * @see   {@link https://authok.com/docs/api/management/v2#!/Users/patch_users_by_id}
+	 * @see   {@link https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id}
 	 * @memberof Management.prototype
 	 */
 	Management.prototype.patchUserMetadata = function (userId, userMetadata, cb) {
@@ -9606,7 +9608,7 @@
 	 * @param {String} userId
 	 * @param {Object} user
 	 * @param {userCallback} cb
-	 * @see   {@link https://authok.com/docs/api/management/v2#!/Users/patch_users_by_id}
+	 * @see   {@link https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id}
 	 * @memberof Management.prototype
 	 */
 	Management.prototype.patchUserAttributes = function (userId, user, cb) {
@@ -9637,7 +9639,7 @@
 	 * @param {String} userId
 	 * @param {String} secondaryUserToken
 	 * @param {userCallback} cb
-	 * @see   {@link https://authok.com/docs/api/management/v2#!/Users/post_identities}
+	 * @see   {@link https://authok.cn/docs/api/management/v2#!/Users/post_identities}
 	 * @memberof Management.prototype
 	 */
 	Management.prototype.linkUser = function (userId, secondaryUserToken, cb) {

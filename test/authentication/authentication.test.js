@@ -69,7 +69,7 @@ describe('authok.authentication', function () {
     it('should check that clientID is set', function () {
       expect(function () {
         var authok = new Authentication(this.webAuthSpy, {
-          domain: 'me.authok.com'
+          domain: 'me.authok.cn'
         });
       }).to.throwException(function (e) {
         expect(e.message).to.be('clientID option is required');
@@ -80,7 +80,7 @@ describe('authok.authentication', function () {
   context('buildAuthorizeUrl', function () {
     before(function () {
       this.authok = new Authentication(this.webAuthSpy, {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -109,7 +109,7 @@ describe('authok.authentication', function () {
         options[param] = 'foobar';
         var url = this.authok.buildAuthorizeUrl(options);
         expect(url).to.be(
-          'https://me.authok.com/authorize?client_id=...&response_type=code&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback'
+          'https://me.authok.cn/authorize?client_id=...&response_type=code&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback'
         );
       });
     });
@@ -118,7 +118,7 @@ describe('authok.authentication', function () {
       var url = this.authok.buildAuthorizeUrl({ state: '1234' });
 
       expect(url).to.be(
-        'https://me.authok.com/authorize?client_id=...&response_type=code&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&state=1234'
+        'https://me.authok.cn/authorize?client_id=...&response_type=code&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&state=1234'
       );
     });
 
@@ -132,7 +132,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/authorize?client_id=...&response_type=token&redirect_uri=http%3A%2F%2Fanotherpage.com%2Fcallback2&prompt=none&state=1234&connection_scope=scope1%2Cscope2'
+        'https://me.authok.cn/authorize?client_id=...&response_type=token&redirect_uri=http%3A%2F%2Fanotherpage.com%2Fcallback2&prompt=none&state=1234&connection_scope=scope1%2Cscope2'
       );
     });
 
@@ -146,7 +146,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/authorize?client_id=...&response_type=token&redirect_uri=http%3A%2F%2Fanotherpage.com%2Fcallback2&prompt=none&state=1234&connection_scope=scope1%2Cscope2'
+        'https://me.authok.cn/authorize?client_id=...&response_type=token&redirect_uri=http%3A%2F%2Fanotherpage.com%2Fcallback2&prompt=none&state=1234&connection_scope=scope1%2Cscope2'
       );
     });
 
@@ -159,7 +159,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/authorize?client_id=...&response_type=token&redirect_uri=http%3A%2F%2Fanotherpage.com%2Fcallback2&prompt=none&state=1234'
+        'https://me.authok.cn/authorize?client_id=...&response_type=token&redirect_uri=http%3A%2F%2Fanotherpage.com%2Fcallback2&prompt=none&state=1234'
       );
     });
 
@@ -173,7 +173,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/authorize?client_id=...&response_type=token&redirect_uri=http%3A%2F%2Fanotherpage.com%2Fcallback2&prompt=none&state=1234&device=my-device'
+        'https://me.authok.cn/authorize?client_id=...&response_type=token&redirect_uri=http%3A%2F%2Fanotherpage.com%2Fcallback2&prompt=none&state=1234&device=my-device'
       );
     });
   });
@@ -181,7 +181,7 @@ describe('authok.authentication', function () {
   context('buildAuthorizeUrl with Telemetry', function () {
     before(function () {
       this.authok = new Authentication(this.webAuthSpy, {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code'
@@ -197,7 +197,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/authorize?client_id=...&response_type=token&redirect_uri=http%3A%2F%2Fanotherpage.com%2Fcallback2&prompt=none&state=1234&authokClient=' +
+        'https://me.authok.cn/authorize?client_id=...&response_type=token&redirect_uri=http%3A%2F%2Fanotherpage.com%2Fcallback2&prompt=none&state=1234&authokClient=' +
           encodeURIComponent(telemetryInfo)
       );
     });
@@ -206,7 +206,7 @@ describe('authok.authentication', function () {
   context('buildLogoutUrl', function () {
     before(function () {
       this.authok = new Authentication(this.webAuthSpy, {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -225,7 +225,7 @@ describe('authok.authentication', function () {
     it('should return a url using the default settings', function () {
       var url = this.authok.buildLogoutUrl();
 
-      expect(url).to.be('https://me.authok.com/logout?client_id=...');
+      expect(url).to.be('https://me.authok.cn/logout?client_id=...');
     });
 
     it('should ignore the clientID', function () {
@@ -233,7 +233,7 @@ describe('authok.authentication', function () {
         clientID: undefined
       });
 
-      expect(url).to.be('https://me.authok.com/logout?');
+      expect(url).to.be('https://me.authok.cn/logout?');
     });
 
     it('should return a url using overriding the default settings', function () {
@@ -244,7 +244,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&federated'
+        'https://me.authok.cn/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&federated'
       );
     });
     it('should not add value for federated', function () {
@@ -255,7 +255,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&federated'
+        'https://me.authok.cn/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&federated'
       );
     });
     it('should not included federated param if the value is false', function () {
@@ -266,7 +266,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com'
+        'https://me.authok.cn/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com'
       );
     });
   });
@@ -274,7 +274,7 @@ describe('authok.authentication', function () {
   context('buildLogoutUrl with Telemetry', function () {
     before(function () {
       this.authok = new Authentication(this.webAuthSpy, {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '123',
         redirectUri: 'http://page.com/callback',
         responseType: 'code'
@@ -289,7 +289,7 @@ describe('authok.authentication', function () {
       });
 
       expect(url).to.be(
-        'https://me.authok.com/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&authokClient=' +
+        'https://me.authok.cn/logout?client_id=123&returnTo=http%3A%2F%2Fpage.com&authokClient=' +
           encodeURIComponent(telemetryInfo) +
           '&federated'
       );
@@ -300,7 +300,7 @@ describe('authok.authentication', function () {
     context('when outside of the hosted login page', function () {
       before(function () {
         this.authok = new Authentication(this.webAuthSpy, {
-          domain: 'me.authok.com',
+          domain: 'me.authok.cn',
           clientID: '...',
           redirectUri: 'http://page.com/callback',
           responseType: 'code',
@@ -320,7 +320,7 @@ describe('authok.authentication', function () {
       });
       beforeEach(function () {
         sinon.stub(windowHelper, 'getWindow').callsFake(function () {
-          return { location: { host: 'other-domain.authok.com' } };
+          return { location: { host: 'other-domain.authok.cn' } };
         });
       });
       afterEach(function () {
@@ -443,7 +443,7 @@ describe('authok.authentication', function () {
     context('when inside of the hosted login page', function () {
       before(function () {
         this.authok = new Authentication(this.webAuthSpy, {
-          domain: 'me.authok.com',
+          domain: 'me.authok.cn',
           clientID: '...',
           redirectUri: 'http://page.com/callback',
           responseType: 'code',
@@ -452,7 +452,7 @@ describe('authok.authentication', function () {
       });
       beforeEach(function () {
         sinon.stub(windowHelper, 'getWindow').callsFake(function () {
-          return { location: { host: 'me.authok.com' } };
+          return { location: { host: 'me.authok.cn' } };
         });
       });
       afterEach(function () {
@@ -470,7 +470,7 @@ describe('authok.authentication', function () {
   context('userInfo', function () {
     before(function () {
       this.authok = new Authentication(this.webAuthSpy, {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -484,7 +484,7 @@ describe('authok.authentication', function () {
 
     it('should call userinfo with the access token', function (done) {
       sinon.stub(request, 'get').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/userinfo');
+        expect(url).to.be('https://me.authok.cn/userinfo');
         return new RequestMock({
           headers: {
             'Content-Type': 'application/json',
@@ -519,7 +519,7 @@ describe('authok.authentication', function () {
   context('delegation', function () {
     before(function () {
       this.authok = new Authentication(this.webAuthSpy, {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -533,7 +533,7 @@ describe('authok.authentication', function () {
 
     it('should call delegation with all the options', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/delegation');
+        expect(url).to.be('https://me.authok.cn/delegation');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -578,7 +578,7 @@ describe('authok.authentication', function () {
   context('login', function () {
     before(function () {
       this.authok = new Authentication(this.webAuthSpy, {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -616,7 +616,7 @@ describe('authok.authentication', function () {
         expect(options).to.eql({
           username: 'someUsername',
           password: '123456',
-          grantType: 'http://authok.com/oauth/grant-type/password-realm',
+          grantType: 'http://authok.cn/oauth/grant-type/password-realm',
           realm: 'pepe.com'
         });
         cb();
@@ -639,7 +639,7 @@ describe('authok.authentication', function () {
     context('when the client does not have state', function () {
       before(function () {
         this.authok = new Authentication(this.webAuthSpy, {
-          domain: 'me.authok.com',
+          domain: 'me.authok.cn',
           clientID: '...',
           redirectUri: 'http://page.com/callback',
           responseType: 'code',
@@ -659,7 +659,7 @@ describe('authok.authentication', function () {
     context('when the client has state', function () {
       before(function () {
         this.authok = new Authentication(this.webAuthSpy, {
-          domain: 'me.authok.com',
+          domain: 'me.authok.cn',
           clientID: '...',
           redirectUri: 'http://page.com/callback',
           responseType: 'code',
@@ -674,7 +674,7 @@ describe('authok.authentication', function () {
 
       it('should post state and returns the image/type', function (done) {
         sinon.stub(request, 'post').callsFake(function (url) {
-          expect(url).to.be('https://me.authok.com/usernamepassword/challenge');
+          expect(url).to.be('https://me.authok.cn/usernamepassword/challenge');
           return new RequestMock({
             body: {
               state: '123abc'
@@ -703,7 +703,7 @@ describe('authok.authentication', function () {
 
       it('should return the error if network fails', function (done) {
         sinon.stub(request, 'post').callsFake(function (url) {
-          expect(url).to.be('https://me.authok.com/usernamepassword/challenge');
+          expect(url).to.be('https://me.authok.cn/usernamepassword/challenge');
           return new RequestMock({
             body: {
               state: '123abc'
@@ -728,7 +728,7 @@ describe('authok.authentication', function () {
   context('oauthToken', function () {
     before(function () {
       this.authok = new Authentication(this.webAuthSpy, {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -742,7 +742,7 @@ describe('authok.authentication', function () {
 
     it('should allow to login', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/oauth/token');
+        expect(url).to.be('https://me.authok.cn/oauth/token');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -787,7 +787,7 @@ describe('authok.authentication', function () {
   context('getUserCountry', function () {
     before(function () {
       this.authok = new Authentication(this.webAuthSpy, {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -801,7 +801,7 @@ describe('authok.authentication', function () {
 
     it('should return the user country code', function (done) {
       sinon.stub(request, 'get').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/user/geoloc/country');
+        expect(url).to.be('https://me.authok.cn/user/geoloc/country');
         return new RequestMock({
           headers: {
             'Content-Type': 'application/json'

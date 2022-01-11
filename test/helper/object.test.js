@@ -594,21 +594,21 @@ describe('helpers', function () {
         search: '?id=1',
         hash: ''
       },
-      'https://authok.com/foo': {
-        href: 'https://authok.com/foo',
+      'https://authok.cn/foo': {
+        href: 'https://authok.cn/foo',
         protocol: 'https:',
-        host: 'authok.com',
-        hostname: 'authok.com',
+        host: 'authok.cn',
+        hostname: 'authok.cn',
         port: undefined,
         pathname: '/foo',
         search: '',
         hash: ''
       },
-      'https://authok.com#access_token=foo': {
-        href: 'https://authok.com#access_token=foo',
+      'https://authok.cn#access_token=foo': {
+        href: 'https://authok.cn#access_token=foo',
         protocol: 'https:',
-        host: 'authok.com',
-        hostname: 'authok.com',
+        host: 'authok.cn',
+        hostname: 'authok.cn',
         port: undefined,
         pathname: '',
         search: '',

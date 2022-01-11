@@ -76,7 +76,7 @@ WebMessageHandler.prototype.run = function (options, cb) {
         windowHelper.getWindow().location.hostname === 'localhost'
       ) {
         _this.warn.warning(
-          "Consent Required. Consent can't be skipped on localhost. Read more here: https://authok.com/docs/api-auth/user-consent#skipping-consent-for-first-party-clients"
+          "Consent Required. Consent can't be skipped on localhost. Read more here: https://authok.cn/docs/api-auth/user-consent#skipping-consent-for-first-party-clients"
         );
       }
       _this.webAuth.transactionManager.clearTransaction(error.state);

@@ -14,7 +14,7 @@ describe('authok.authentication', function () {
   context('/oauth/ro', function () {
     before(function () {
       this.authok = new Authentication({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code'
@@ -27,7 +27,7 @@ describe('authok.authentication', function () {
 
     it('should call the ro endpoint with all the parameters', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/oauth/ro');
+        expect(url).to.be('https://me.authok.cn/oauth/ro');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -74,7 +74,7 @@ describe('authok.authentication', function () {
 
     it('should handle ro errors', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/oauth/ro');
+        expect(url).to.be('https://me.authok.cn/oauth/ro');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -121,7 +121,7 @@ describe('authok.authentication', function () {
 
     it('should call the ro endpoint overriding the parameters', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/oauth/ro');
+        expect(url).to.be('https://me.authok.cn/oauth/ro');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -168,7 +168,7 @@ describe('authok.authentication', function () {
 
     it('should exclude parameters that are not allowed', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/oauth/ro');
+        expect(url).to.be('https://me.authok.cn/oauth/ro');
         return new RequestMock({
           body: {
             client_id: '...',

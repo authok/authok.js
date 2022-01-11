@@ -24,7 +24,7 @@ import DBConnection from './db-connection';
  * @param {String} [options.responseMode] how the Auth response is encoded and redirected back to the client. Supported values are `query`, `fragment` and `form_post`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#ResponseModes}
  * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
  * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
- * @see {@link https://authok.com/docs/api/authentication}
+ * @see {@link https://authok.cn/docs/api/authentication}
  */
 function Authentication(authok, options) {
   // If we have two arguments, the first one is a WebAuth instance, so we assign that
@@ -118,12 +118,12 @@ function Authentication(authok, options) {
  * @param {String} options.redirectUri url that the authok will redirect after Auth with the Authorization Response
  * @param {String} options.responseType type of the response used by OAuth 2.0 flow. It can be any space separated list of the values `code`, `token`, `id_token`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html}
  * @param {String} [options.responseMode] how the Auth response is encoded and redirected back to the client. Supported values are `query`, `fragment` and `form_post`. {@link https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#ResponseModes}
- * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.com/docs/protocols/oauth2/oauth-state}
- * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.com/docs/api-auth/tutorials/nonce}
+ * @param {String} [options.state] value used to mitigate XSRF attacks. {@link https://authok.cn/docs/protocols/oauth2/oauth-state}
+ * @param {String} [options.nonce] value used to mitigate replay attacks when using Implicit Grant. {@link https://authok.cn/docs/api-auth/tutorials/nonce}
  * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
  * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
- * @see {@link https://authok.com/docs/api/authentication#authorize-client}
- * @see {@link https://authok.com/docs/api/authentication#social}
+ * @see {@link https://authok.cn/docs/api/authentication#authorize-client}
+ * @see {@link https://authok.cn/docs/api/authentication#social}
  * @memberof Authentication.prototype
  */
 Authentication.prototype.buildAuthorizeUrl = function (options) {
@@ -222,7 +222,7 @@ Authentication.prototype.buildAuthorizeUrl = function (options) {
  * @param {String} [options.clientID] the Client ID found on your Application settings page
  * @param {String} [options.returnTo] URL to be redirected after the logout
  * @param {Boolean} [options.federated] tells authok if it should logout the user also from the IdP.
- * @see {@link https://authok.com/docs/api/authentication#logout}
+ * @see {@link https://authok.cn/docs/api/authentication#logout}
  * @memberof Authentication.prototype
  */
 Authentication.prototype.buildLogoutUrl = function (options) {
@@ -292,7 +292,7 @@ Authentication.prototype.buildLogoutUrl = function (options) {
  * @param {String} [options.scope] scopes to be requested during Auth. e.g. `openid email`
  * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
  * @param {tokenCallback} cb function called with the result of the request
- * @see Requires [`password` grant]{@link https://authok.com/docs/api-auth/grant/password}. For more information, read {@link https://authok.com/docs/clients/client-grant-types}.
+ * @see Requires [`password` grant]{@link https://authok.cn/docs/api-auth/grant/password}. For more information, read {@link https://authok.cn/docs/clients/client-grant-types}.
  * @memberof Authentication.prototype
  */
 Authentication.prototype.loginWithDefaultDirectory = function (options, cb) {
@@ -331,7 +331,7 @@ Authentication.prototype.loginWithDefaultDirectory = function (options, cb) {
  * @param {String} [options.audience] identifier of the resource server who will consume the access token issued after Auth
  * @param {Object} options.realm the HRD domain or the connection name where the user belongs to. e.g. `Username-Password-Authentication`
  * @param {tokenCallback} cb function called with the result of the request
- * @see Requires [`http://authok.com/oauth/grant-type/password-realm` grant]{@link https://authok.com/docs/api-auth/grant/password#realm-support}. For more information, read {@link https://authok.com/docs/clients/client-grant-types}.
+ * @see Requires [`http://authok.cn/oauth/grant-type/password-realm` grant]{@link https://authok.cn/docs/api-auth/grant/password#realm-support}. For more information, read {@link https://authok.cn/docs/clients/client-grant-types}.
  * @memberof Authentication.prototype
  */
 Authentication.prototype.login = function (options, cb) {
@@ -355,7 +355,7 @@ Authentication.prototype.login = function (options, cb) {
     }
   );
 
-  options.grantType = 'http://authok.com/oauth/grant-type/password-realm';
+  options.grantType = 'http://authok.cn/oauth/grant-type/password-realm';
 
   return this.oauthToken(options, cb);
 };
@@ -534,7 +534,7 @@ Authentication.prototype.getSSOData = function (withActiveDirectories, cb) {
  * @method userInfo
  * @param {String} accessToken token issued to a user after Auth
  * @param {userInfoCallback} cb
- * @see   {@link https://authok.com/docs/api/authentication#get-user-info}
+ * @see   {@link https://authok.cn/docs/api/authentication#get-user-info}
  * @memberof Authentication.prototype
  */
 Authentication.prototype.userInfo = function (accessToken, cb) {
@@ -597,8 +597,8 @@ Authentication.prototype.getChallenge = function (cb) {
  * @param {String} [options.scope] either `openid` or `openid profile email`
  * @param {String} [options.apiType] the api to be called
  * @param {delegationCallback} cb
- * @see   {@link https://authok.com/docs/api/authentication#delegation}
- * @see Requires [http://authok.com/oauth/grant-type/password-realm]{@link https://authok.com/docs/api-auth/grant/password#realm-support}. For more information, read {@link https://authok.com/docs/clients/client-grant-types}.
+ * @see   {@link https://authok.cn/docs/api/authentication#delegation}
+ * @see Requires [http://authok.cn/oauth/grant-type/password-realm]{@link https://authok.cn/docs/api-auth/grant/password#realm-support}. For more information, read {@link https://authok.cn/docs/clients/client-grant-types}.
  * @memberof Authentication.prototype
  */
 Authentication.prototype.delegation = function (options, cb) {

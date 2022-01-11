@@ -18,7 +18,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
         baseOptions: {}
       };
       this.co = new CrossOriginAuthentication(this.webAuthSpy, {
-        rootUrl: 'https://me.authok.com',
+        rootUrl: 'https://me.authok.cn',
         clientID: '...',
         _sendTelemetry: false,
         redirectUri: 'https://page.com/callback'
@@ -55,7 +55,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
     });
     it('should call /co/authenticate and redirect to /authorize with login_ticket using `username`', function () {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/co/authenticate');
+        expect(url).to.be('https://me.authok.cn/co/authenticate');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -94,7 +94,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
     });
     it('should call /co/authenticate and redirect to /authorize with login_ticket using `email`', function () {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/co/authenticate');
+        expect(url).to.be('https://me.authok.cn/co/authenticate');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -129,7 +129,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
     });
     it('should call /co/authenticate and run onRedirecting before /authorize', function () {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/co/authenticate');
+        expect(url).to.be('https://me.authok.cn/co/authenticate');
 
         return new RequestMock({
           body: {
@@ -173,7 +173,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
     });
     it('should call /co/authenticate and call `webMessageHandler.run` when popup:true', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/co/authenticate');
+        expect(url).to.be('https://me.authok.cn/co/authenticate');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -219,7 +219,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
     });
     it('should map error correctly when popup:true', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/co/authenticate');
+        expect(url).to.be('https://me.authok.cn/co/authenticate');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -273,12 +273,11 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
     });
     it('should call /co/authenticate with realm grant and redirect to /authorize with login_ticket when realm is used', function () {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/co/authenticate');
+        expect(url).to.be('https://me.authok.cn/co/authenticate');
         return new RequestMock({
           body: {
             client_id: '...',
-            credential_type:
-              'http://authok.com/oauth/grant-type/password-realm',
+            credential_type: 'http://authok.cn/oauth/grant-type/password-realm',
             username: 'me@example.com',
             password: '123456',
             realm: 'a-connection'
@@ -310,12 +309,12 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
     });
     it('should work with custom realm, grant and otp', function () {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/co/authenticate');
+        expect(url).to.be('https://me.authok.cn/co/authenticate');
         return new RequestMock({
           body: {
             client_id: '...',
             credential_type:
-              'http://authok.com/oauth/grant-type/passwordless/otp',
+              'http://authok.cn/oauth/grant-type/passwordless/otp',
             username: 'me@example.com',
             otp: '123456',
             realm: 'email'
@@ -338,7 +337,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
         username: 'me@example.com',
         otp: '123456',
         realm: 'email',
-        credentialType: 'http://authok.com/oauth/grant-type/passwordless/otp'
+        credentialType: 'http://authok.cn/oauth/grant-type/passwordless/otp'
       });
       expect(this.webAuthSpy.authorize.getCall(0).args[0]).to.be.eql({
         username: 'me@example.com',
@@ -348,7 +347,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
     });
     it('should call /co/authenticate and save the verifier in storage', function () {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/co/authenticate');
+        expect(url).to.be('https://me.authok.cn/co/authenticate');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -377,7 +376,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
       });
       expect(Storage.prototype.setItem.callCount).to.be(1);
       expect(Storage.prototype.setItem.firstCall.args).to.be.eql([
-        'co/verifier/https%3A%2F%2Fme.authok.com/co_id',
+        'co/verifier/https%3A%2F%2Fme.authok.cn/co_id',
         'co_verifier',
         { expires: times.MINUTES_15 }
       ]);
@@ -387,7 +386,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
       function () {
         it('with error_description', function (done) {
           sinon.stub(request, 'post').callsFake(function (url) {
-            expect(url).to.be('https://me.authok.com/co/authenticate');
+            expect(url).to.be('https://me.authok.cn/co/authenticate');
             return new RequestMock({
               body: {
                 client_id: '...',
@@ -435,7 +434,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
         });
         it('without error_description', function (done) {
           sinon.stub(request, 'post').callsFake(function (url) {
-            expect(url).to.be('https://me.authok.com/co/authenticate');
+            expect(url).to.be('https://me.authok.cn/co/authenticate');
             return new RequestMock({
               body: {
                 client_id: '...',
@@ -482,7 +481,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
       this.co = new CrossOriginAuthentication(
         { baseOptions: {} },
         {
-          rootUrl: 'https://me.authok.com',
+          rootUrl: 'https://me.authok.cn',
           clientID: '...',
           _sendTelemetry: false,
           redirectUri: 'https://page.com/callback'
@@ -501,7 +500,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
     beforeEach(function () {
       sinon.spy(Storage.prototype, 'removeItem');
       sinon.stub(Storage.prototype, 'getItem').callsFake(function (key) {
-        expect(key).to.be('co/verifier/https%3A%2F%2Fme.authok.com/co_id');
+        expect(key).to.be('co/verifier/https%3A%2F%2Fme.authok.cn/co_id');
         return 'co_verifier';
       });
     });
@@ -534,10 +533,10 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
       });
       it('should remove item from storage', function () {
         this.co.callback();
-        var onMessageHandler = global.window.addEventListener.getCall(0)
-          .args[1];
+        var onMessageHandler =
+          global.window.addEventListener.getCall(0).args[1];
         var evt = {
-          origin: 'https://me.authok.com',
+          origin: 'https://me.authok.cn',
           data: {
             type: 'co_verifier_request',
             request: {
@@ -551,15 +550,15 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
         onMessageHandler(evt);
         var theCall = Storage.prototype.removeItem.getCall(0);
         expect(theCall.args[0]).to.be(
-          'co/verifier/https%3A%2F%2Fme.authok.com/co_id'
+          'co/verifier/https%3A%2F%2Fme.authok.cn/co_id'
         );
       });
       it('should send the verifier response', function () {
         this.co.callback();
-        var onMessageHandler = global.window.addEventListener.getCall(0)
-          .args[1];
+        var onMessageHandler =
+          global.window.addEventListener.getCall(0).args[1];
         var evt = {
-          origin: 'https://me.authok.com',
+          origin: 'https://me.authok.cn',
           data: {
             type: 'co_verifier_request',
             request: {
@@ -576,7 +575,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
           type: 'co_verifier_response',
           response: { verifier: 'co_verifier' }
         });
-        expect(theCall.args[1]).to.be('https://me.authok.com');
+        expect(theCall.args[1]).to.be('https://me.authok.cn');
       });
       it('should send empty verifier in the response when storage can not be accessed', function () {
         Storage.prototype.getItem.restore();
@@ -584,10 +583,10 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
           throw new Error('');
         });
         this.co.callback();
-        var onMessageHandler = global.window.addEventListener.getCall(0)
-          .args[1];
+        var onMessageHandler =
+          global.window.addEventListener.getCall(0).args[1];
         var evt = {
-          origin: 'https://me.authok.com',
+          origin: 'https://me.authok.cn',
           data: {
             type: 'co_verifier_request',
             request: {
@@ -604,7 +603,7 @@ describe('authok.WebAuth.crossOriginAuthentication', function () {
           type: 'co_verifier_response',
           response: { verifier: '' }
         });
-        expect(theCall.args[1]).to.be('https://me.authok.com');
+        expect(theCall.args[1]).to.be('https://me.authok.cn');
       });
     });
   });

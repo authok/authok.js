@@ -25,7 +25,7 @@ describe('authok.WebAuth.redirect', function () {
   context('signup', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -39,7 +39,7 @@ describe('authok.WebAuth.redirect', function () {
 
     it('should call db-connection signup with all the options', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/dbconnections/signup');
+        expect(url).to.be('https://me.authok.cn/dbconnections/signup');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -82,7 +82,7 @@ describe('authok.WebAuth.redirect', function () {
   context('login', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -116,7 +116,7 @@ describe('authok.WebAuth.redirect', function () {
   context('signup and login', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'token',
@@ -143,7 +143,7 @@ describe('authok.WebAuth.redirect', function () {
 
     it('should call db-connection signup with all the options', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        if (url !== 'https://me.authok.com/dbconnections/signup') {
+        if (url !== 'https://me.authok.cn/dbconnections/signup') {
           throw new Error('Invalid URL');
         }
 
@@ -188,7 +188,7 @@ describe('authok.WebAuth.redirect', function () {
 
     it('should propagate signup errors', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/dbconnections/signup');
+        expect(url).to.be('https://me.authok.cn/dbconnections/signup');
 
         return new RequestMock({
           body: {
@@ -246,7 +246,7 @@ describe('authok.WebAuth.redirect', function () {
   context('passwordlessVerify', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code'
@@ -261,14 +261,14 @@ describe('authok.WebAuth.redirect', function () {
     it('should verify the code and redirect to the passwordless verify page', function (done) {
       sinon.stub(windowHelper, 'redirect').callsFake(function (url) {
         expect(url).to.be(
-          'https://me.authok.com/passwordless/verify_redirect?client_id=test-client-id&response_type=code&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&connection=the_connection&phone_number=123456&verification_code=abc&state=randomState&authokClient=' +
+          'https://me.authok.cn/passwordless/verify_redirect?client_id=test-client-id&response_type=code&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&connection=the_connection&phone_number=123456&verification_code=abc&state=randomState&authokClient=' +
             encodeURIComponent(telemetryInfo)
         );
         done();
       });
 
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/verify');
+        expect(url).to.be('https://me.authok.cn/passwordless/verify');
         return new RequestMock({
           body: {
             client_id: 'test-client-id',
@@ -302,14 +302,14 @@ describe('authok.WebAuth.redirect', function () {
     it('should verify the code and redirect to the passwordless verify page (using global client ID)', function (done) {
       sinon.stub(windowHelper, 'redirect').callsFake(function (url) {
         expect(url).to.be(
-          'https://me.authok.com/passwordless/verify_redirect?client_id=...&response_type=code&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&connection=the_connection&phone_number=123456&verification_code=abc&state=randomState&authokClient=' +
+          'https://me.authok.cn/passwordless/verify_redirect?client_id=...&response_type=code&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&connection=the_connection&phone_number=123456&verification_code=abc&state=randomState&authokClient=' +
             encodeURIComponent(telemetryInfo)
         );
         done();
       });
 
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/verify');
+        expect(url).to.be('https://me.authok.cn/passwordless/verify');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -343,7 +343,7 @@ describe('authok.WebAuth.redirect', function () {
   context('passwordlessVerify without telemetry', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -359,13 +359,13 @@ describe('authok.WebAuth.redirect', function () {
     it('should verify the code and redirect to the passwordless verify page', function (done) {
       sinon.stub(windowHelper, 'redirect').callsFake(function (url) {
         expect(url).to.be(
-          'https://me.authok.com/passwordless/verify_redirect?client_id=...&response_type=code&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&connection=the_connection&phone_number=123456&verification_code=abc&state=randomState'
+          'https://me.authok.cn/passwordless/verify_redirect?client_id=...&response_type=code&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&connection=the_connection&phone_number=123456&verification_code=abc&state=randomState'
         );
         done();
       });
 
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/verify');
+        expect(url).to.be('https://me.authok.cn/passwordless/verify');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -397,7 +397,7 @@ describe('authok.WebAuth.redirect', function () {
   context('passwordlessVerify with error', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -411,7 +411,7 @@ describe('authok.WebAuth.redirect', function () {
 
     it('should verify the code and redirect to the passwordless verify page', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/verify');
+        expect(url).to.be('https://me.authok.cn/passwordless/verify');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -456,7 +456,7 @@ describe('authok.WebAuth.redirect', function () {
     beforeEach(function () {
       global.window = { location: '' };
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         _sendTelemetry: false
@@ -480,14 +480,14 @@ describe('authok.WebAuth.redirect', function () {
         scope: 'openid'
       });
       expect(global.window.location).to.be(
-        'https://me.authok.com/authorize?client_id=...&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&response_type=code&connection=facebook&state=1234&scope=openid'
+        'https://me.authok.cn/authorize?client_id=...&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&response_type=code&connection=facebook&state=1234&scope=openid'
       );
     });
 
     it('should redirect to logout', function () {
       this.authok.logout({ redirect_to: 'http://example.com/logout' });
       expect(global.window.location).to.be(
-        'https://me.authok.com/logout?client_id=...&redirect_to=http%3A%2F%2Fexample.com%2Flogout'
+        'https://me.authok.cn/logout?client_id=...&redirect_to=http%3A%2F%2Fexample.com%2Flogout'
       );
     });
   });

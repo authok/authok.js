@@ -15,7 +15,7 @@ Updated packages are available on npm. To ensure delivery of additional bug fixe
 
 This fix patches the library that your application runs, but will not impact your users, their current state, or any existing sessions.
 
-You can read more details regarding the vulnerability [here](https://authok.com/docs/security/bulletins/cve-2018-7307).
+You can read more details regarding the vulnerability [here](https://authok.cn/docs/security/bulletins/cve-2018-7307).
 
 
 
@@ -38,4 +38,4 @@ Updated packages are available on npm. To ensure delivery of additional bug fixe
 
 This fix patches the library that your application runs, but will not impact your users, their current state, or any existing sessions.
 
-You can read more details regarding the vulnerability [here](https://authok.com/docs/security/bulletins/cve-2017-17068).
+You can read more details regarding the vulnerability [here](https://authok.cn/docs/security/bulletins/cve-2017-17068).

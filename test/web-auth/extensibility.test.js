@@ -13,7 +13,7 @@ describe('authok.WebAuth extensibility', function () {
     it('should validate the plugin version (must throw)', function () {
       expect(function () {
         var webAuth = new WebAuth({
-          domain: 'test.authok.com',
+          domain: 'test.authok.cn',
           clientID: '...',
           responseType: 'token id_token',
           plugins: [new MockauthokPlugin({ version: 'v1.0.0' })]
@@ -30,7 +30,7 @@ describe('authok.WebAuth extensibility', function () {
     it('should validate the plugin version', function () {
       var plugin = new MockauthokPlugin();
       var webAuth = new WebAuth({
-        domain: 'test.authok.com',
+        domain: 'test.authok.cn',
         clientID: '...',
         responseType: 'token id_token',
         plugins: [plugin]
@@ -43,7 +43,7 @@ describe('authok.WebAuth extensibility', function () {
   context('buildPopupHandler', function () {
     before(function () {
       this.webAuth = new WebAuth({
-        domain: 'test.authok.com',
+        domain: 'test.authok.cn',
         clientID: '...',
         responseType: 'token id_token',
         plugins: [
@@ -68,7 +68,7 @@ describe('authok.WebAuth extensibility', function () {
   context('overrdide popup.authorize params', function () {
     before(function () {
       this.webAuth = new WebAuth({
-        domain: 'test.authok.com',
+        domain: 'test.authok.cn',
         clientID: '...',
         responseType: 'token id_token',
         plugins: [
@@ -105,9 +105,9 @@ describe('authok.WebAuth extensibility', function () {
         .stub(PopupHandler.prototype, 'load')
         .callsFake(function (url, relayUrl, options, cb) {
           expect(url).to.be(
-            'https://test.authok.com/authorize?client_id=...&response_type=code&owp=true&scope=openid&redirect_uri=http%3A%2F%2Fcustom-url.com&state=randomState'
+            'https://test.authok.cn/authorize?client_id=...&response_type=code&owp=true&scope=openid&redirect_uri=http%3A%2F%2Fcustom-url.com&state=randomState'
           );
-          expect(relayUrl).to.be('https://test.authok.com/relay.html');
+          expect(relayUrl).to.be('https://test.authok.cn/relay.html');
           expect(options).to.eql({});
           cb(null, {
             email_verified: false,
@@ -115,18 +115,18 @@ describe('authok.WebAuth extensibility', function () {
           });
         });
 
-      this.webAuth.popup.authorize({ owp: true, scope: 'openid' }, function (
-        err,
-        data
-      ) {
-        expect(err).to.be(null);
-        expect(data).to.eql({
-          email_verified: false,
-          emailVerified: false,
-          email: 'me@example.com'
-        });
-        done();
-      });
+      this.webAuth.popup.authorize(
+        { owp: true, scope: 'openid' },
+        function (err, data) {
+          expect(err).to.be(null);
+          expect(data).to.eql({
+            email_verified: false,
+            emailVerified: false,
+            email: 'me@example.com'
+          });
+          done();
+        }
+      );
     });
   });
 });

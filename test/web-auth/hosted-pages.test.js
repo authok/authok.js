@@ -29,7 +29,7 @@ describe('authok.WebAuth._universalLogin', function () {
       sinon.stub(windowHelper, 'getWindow').callsFake(function () {
         return {
           location: {
-            host: 'me.authok.com'
+            host: 'me.authok.cn'
           },
           crypto: {
             getRandomValues: function () {
@@ -50,7 +50,7 @@ describe('authok.WebAuth._universalLogin', function () {
     });
     it('should throw an error if window.location.host !== domain', function () {
       var configuration = {
-        domain: 'other-domain.authok.com',
+        domain: 'other-domain.authok.cn',
         redirectUri: 'https://localhost:3000/example/',
         clientID: '0HP71GSd6PuoRY',
         responseType: 'token'
@@ -72,7 +72,7 @@ describe('authok.WebAuth._universalLogin', function () {
 
     it('should authenticate the user, render the callback form and submit it', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/usernamepassword/login');
+        expect(url).to.be('https://me.authok.cn/usernamepassword/login');
         return new RequestMock({
           body: {
             client_id: '0HP71GSd6PuoRY',
@@ -118,7 +118,7 @@ describe('authok.WebAuth._universalLogin', function () {
       });
 
       var configuration = {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         redirectUri: 'https://localhost:3000/example/',
         clientID: '0HP71GSd6PuoRY',
         responseType: 'id_token'
@@ -140,7 +140,7 @@ describe('authok.WebAuth._universalLogin', function () {
     });
     it('should call onRedirecting if available before submitting the redirect form', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/usernamepassword/login');
+        expect(url).to.be('https://me.authok.cn/usernamepassword/login');
         return new RequestMock({
           body: {
             client_id: '0HP71GSd6PuoRY',
@@ -189,7 +189,7 @@ describe('authok.WebAuth._universalLogin', function () {
       });
 
       var configuration = {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         redirectUri: 'https://localhost:3000/example/',
         clientID: '0HP71GSd6PuoRY',
         responseType: 'id_token'
@@ -219,7 +219,7 @@ describe('authok.WebAuth._universalLogin', function () {
       });
 
       var authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         redirectUri: 'https://localhost:3000/example/',
         clientID: '0HP71GSd6PuoRY',
         responseType: 'id_token'
@@ -234,7 +234,7 @@ describe('authok.WebAuth._universalLogin', function () {
     });
     it('should propagate the error', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/usernamepassword/login');
+        expect(url).to.be('https://me.authok.cn/usernamepassword/login');
         return new RequestMock({
           body: {
             client_id: '0HP71GSd6PuoRY',
@@ -261,7 +261,7 @@ describe('authok.WebAuth._universalLogin', function () {
       });
 
       var configuration = {
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         redirectUri: 'https://localhost:3000/example/',
         clientID: '0HP71GSd6PuoRY',
         responseType: 'token'
@@ -296,7 +296,7 @@ describe('authok.WebAuth._universalLogin', function () {
   context('signup and login', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'token',
@@ -305,7 +305,7 @@ describe('authok.WebAuth._universalLogin', function () {
       sinon.stub(windowHelper, 'getWindow').callsFake(function () {
         return {
           location: {
-            host: 'me.authok.com'
+            host: 'me.authok.cn'
           },
           crypto: {
             getRandomValues: function () {
@@ -326,7 +326,7 @@ describe('authok.WebAuth._universalLogin', function () {
 
     it('should call db-connection signup with all the options', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        if (url === 'https://me.authok.com/usernamepassword/login') {
+        if (url === 'https://me.authok.cn/usernamepassword/login') {
           return new RequestMock({
             body: {
               client_id: '...',
@@ -354,7 +354,7 @@ describe('authok.WebAuth._universalLogin', function () {
               });
             }
           });
-        } else if (url === 'https://me.authok.com/dbconnections/signup') {
+        } else if (url === 'https://me.authok.cn/dbconnections/signup') {
           return new RequestMock({
             body: {
               client_id: '...',
@@ -412,7 +412,7 @@ describe('authok.WebAuth._universalLogin', function () {
 
     it('should propagate signup errors', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/dbconnections/signup');
+        expect(url).to.be('https://me.authok.cn/dbconnections/signup');
 
         return new RequestMock({
           body: {
@@ -470,7 +470,7 @@ describe('authok.WebAuth._universalLogin', function () {
   context('getSSOData', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -484,7 +484,7 @@ describe('authok.WebAuth._universalLogin', function () {
 
     it('should call /user/ssodata with no options', function (done) {
       sinon.stub(request, 'get').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/user/ssodata');
+        expect(url).to.be('https://me.authok.cn/user/ssodata');
         return new RequestMock({
           headers: {},
           cb: function (cb) {
@@ -508,7 +508,7 @@ describe('authok.WebAuth._universalLogin', function () {
     it('should call /user/ssodata with all the AD options', function (done) {
       sinon.stub(request, 'get').callsFake(function (url) {
         expect(url).to.be(
-          'https://me.authok.com/user/ssodata?ldaps=1&client_id=...'
+          'https://me.authok.cn/user/ssodata?ldaps=1&client_id=...'
         );
         return new RequestMock({
           headers: {},

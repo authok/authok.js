@@ -26,7 +26,7 @@ describe('authok.WebAuth.popup', function () {
   });
   before(function () {
     this.authok = new WebAuth({
-      domain: 'me.authok.com',
+      domain: 'me.authok.cn',
       clientID: '...',
       redirectUri: 'http://page.com/callback',
       responseType: 'id_token',
@@ -77,7 +77,7 @@ describe('authok.WebAuth.popup', function () {
       global.window.outerHeight = 2000;
 
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'id_token',
@@ -109,7 +109,7 @@ describe('authok.WebAuth.popup', function () {
   context('authorize', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'id_token',
@@ -124,7 +124,7 @@ describe('authok.WebAuth.popup', function () {
     it('should default scope to openid', function (done) {
       sinon.stub(PopupHandler.prototype, 'load').callsFake(function (url) {
         expect(url).to.be(
-          'https://me.authok.com/authorize?client_id=...&response_type=id_token&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&connection=the_connection&state=123&nonce=456&scope=openid'
+          'https://me.authok.cn/authorize?client_id=...&response_type=id_token&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&connection=the_connection&state=123&nonce=456&scope=openid'
         );
         Storage.prototype.setItem.restore();
         TransactionManager.prototype.process.restore();
@@ -147,7 +147,7 @@ describe('authok.WebAuth.popup', function () {
 
     it('should pass organization and invitation params to buildAuthorizeUrl from the constructor', function (done) {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'id_token',
@@ -159,7 +159,7 @@ describe('authok.WebAuth.popup', function () {
 
       sinon.stub(PopupHandler.prototype, 'load').callsFake(function (url) {
         expect(url).to.be(
-          'https://me.authok.com/authorize?client_id=...&response_type=id_token&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&organization=org_123&invitation=inv_123&connection=the_connection&state=123&nonce=456&scope=openid'
+          'https://me.authok.cn/authorize?client_id=...&response_type=id_token&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&organization=org_123&invitation=inv_123&connection=the_connection&state=123&nonce=456&scope=openid'
         );
 
         Storage.prototype.setItem.restore();
@@ -187,7 +187,7 @@ describe('authok.WebAuth.popup', function () {
     it('should pass organization and invitation params to buildAuthorizeUrl from authorize', function (done) {
       sinon.stub(PopupHandler.prototype, 'load').callsFake(function (url) {
         expect(url).to.be(
-          'https://me.authok.com/authorize?client_id=...&response_type=id_token&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&organization=org_123&invitation=inv_123&connection=the_connection&state=123&nonce=456&scope=openid'
+          'https://me.authok.cn/authorize?client_id=...&response_type=id_token&redirect_uri=http%3A%2F%2Fpage.com%2Fcallback&organization=org_123&invitation=inv_123&connection=the_connection&state=123&nonce=456&scope=openid'
         );
 
         Storage.prototype.setItem.restore();
@@ -218,7 +218,7 @@ describe('authok.WebAuth.popup', function () {
       sinon
         .stub(PopupHandler.prototype, 'load')
         .callsFake(function (url, relayUrl, options, cb) {
-          expect(relayUrl).to.be('https://me.authok.com/relay.html');
+          expect(relayUrl).to.be('https://me.authok.cn/relay.html');
           expect(options.popupOptions.height).to.be(300);
           expect(options.popupOptions.width).to.be(250);
           expect(options.popupOptions).to.not.have.property('extra');
@@ -252,7 +252,7 @@ describe('authok.WebAuth.popup', function () {
         .callsFake(function (url, relayUrl, options, cb) {
           var components = URL.parse(url, true);
           expect(components.protocol).to.be('https:');
-          expect(components.host).to.be('me.authok.com');
+          expect(components.host).to.be('me.authok.cn');
           expect(components.pathname).to.be('/authorize');
           expect(components.query.client_id).to.be('...');
           expect(components.query.response_type).to.be('id_token');
@@ -260,7 +260,7 @@ describe('authok.WebAuth.popup', function () {
           expect(components.query.nonce).to.be('123');
           expect(components.query.state).to.be('456');
           expect(components.query.owp).to.be('true');
-          expect(relayUrl).to.be('https://me.authok.com/relay.html');
+          expect(relayUrl).to.be('https://me.authok.cn/relay.html');
           expect(options).to.eql({});
           cb(null, {
             email_verified: false,
@@ -291,7 +291,7 @@ describe('authok.WebAuth.popup', function () {
   context('login', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'id_token',
@@ -341,7 +341,7 @@ describe('authok.WebAuth.popup', function () {
   context('passwordlessVerify', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'id_token',
@@ -356,11 +356,11 @@ describe('authok.WebAuth.popup', function () {
     it('(phone) should do the redirections in the popup', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
         expect([
-          'https://me.authok.com/passwordless/verify',
-          'https://me.authok.com/oauth/ro'
+          'https://me.authok.cn/passwordless/verify',
+          'https://me.authok.cn/oauth/ro'
         ]).to.contain(url);
 
-        if (url === 'https://me.authok.com/passwordless/verify') {
+        if (url === 'https://me.authok.cn/passwordless/verify') {
           return new RequestMock({
             body: {
               connection: 'the_connection',
@@ -378,7 +378,7 @@ describe('authok.WebAuth.popup', function () {
           });
         }
 
-        if (url === 'https://me.authok.com/oauth/ro') {
+        if (url === 'https://me.authok.cn/oauth/ro') {
           return new RequestMock({
             body: {
               client_id: '...',
@@ -424,11 +424,11 @@ describe('authok.WebAuth.popup', function () {
     it('(email) should do the redirections in the popup', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
         expect([
-          'https://me.authok.com/passwordless/verify',
-          'https://me.authok.com/oauth/ro'
+          'https://me.authok.cn/passwordless/verify',
+          'https://me.authok.cn/oauth/ro'
         ]).to.contain(url);
 
-        if (url === 'https://me.authok.com/passwordless/verify') {
+        if (url === 'https://me.authok.cn/passwordless/verify') {
           return new RequestMock({
             body: {
               connection: 'the_connection',
@@ -446,7 +446,7 @@ describe('authok.WebAuth.popup', function () {
           });
         }
 
-        if (url === 'https://me.authok.com/oauth/ro') {
+        if (url === 'https://me.authok.cn/oauth/ro') {
           return new RequestMock({
             body: {
               client_id: '...',
@@ -498,7 +498,7 @@ describe('authok.WebAuth.popup', function () {
       };
 
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.eql('https://me.authok.com/passwordless/verify');
+        expect(url).to.eql('https://me.authok.cn/passwordless/verify');
         return new RequestMock({
           body: {
             connection: 'the_connection',
@@ -536,7 +536,7 @@ describe('authok.WebAuth.popup', function () {
   context('signup and login', function () {
     before(function () {
       this.authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'token',
@@ -560,12 +560,12 @@ describe('authok.WebAuth.popup', function () {
       sinon
         .stub(PopupHandler.prototype, 'load')
         .callsFake(function (url, relayUrl, options, cb) {
-          expect(url).to.be('https://me.authok.com/sso_dbconnection_popup/...');
-          expect(relayUrl).to.be('https://me.authok.com/relay.html');
+          expect(url).to.be('https://me.authok.cn/sso_dbconnection_popup/...');
+          expect(relayUrl).to.be('https://me.authok.cn/relay.html');
           expect(options).to.eql({
             params: {
               clientID: '...',
-              domain: 'me.authok.com',
+              domain: 'me.authok.cn',
               options: {
                 connection: 'the_connection',
                 username: 'me@example.com',
@@ -599,7 +599,7 @@ describe('authok.WebAuth.popup', function () {
 
     it('should call db-connection signup with all the options', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.eql('https://me.authok.com/dbconnections/signup');
+        expect(url).to.eql('https://me.authok.cn/dbconnections/signup');
 
         return new RequestMock({
           body: {
@@ -662,7 +662,7 @@ describe('authok.WebAuth.popup', function () {
 
     it('should propagate signup errors', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/dbconnections/signup');
+        expect(url).to.be('https://me.authok.cn/dbconnections/signup');
 
         return new RequestMock({
           body: {
@@ -742,12 +742,14 @@ describe('authok.WebAuth.popup', function () {
         cb(null, { accessToken: 'accessToken' });
       });
       sinon.stub(WinChan, 'onOpen').callsFake(function (onOpenCallback) {
-        onOpenCallback('https://baseoptions.popupOrigin.com', null, function (
-          result
-        ) {
-          expect(result).to.be.eql({ accessToken: 'accessToken' });
-          done();
-        });
+        onOpenCallback(
+          'https://baseoptions.popupOrigin.com',
+          null,
+          function (result) {
+            expect(result).to.be.eql({ accessToken: 'accessToken' });
+            done();
+          }
+        );
       });
 
       this.authok.popup.callback();
@@ -757,15 +759,17 @@ describe('authok.WebAuth.popup', function () {
         cb({ error: 'any_error', error_description: 'a big error message' });
       });
       sinon.stub(WinChan, 'onOpen').callsFake(function (onOpenCallback) {
-        onOpenCallback('https://baseoptions.popupOrigin.com', null, function (
-          result
-        ) {
-          expect(result).to.be.eql({
-            error: 'any_error',
-            error_description: 'a big error message'
-          });
-          done();
-        });
+        onOpenCallback(
+          'https://baseoptions.popupOrigin.com',
+          null,
+          function (result) {
+            expect(result).to.be.eql({
+              error: 'any_error',
+              error_description: 'a big error message'
+            });
+            done();
+          }
+        );
       });
 
       this.authok.popup.callback();
@@ -790,16 +794,18 @@ describe('authok.WebAuth.popup', function () {
     });
     it('validates origin with options.popupOrigin', function (done) {
       sinon.stub(WinChan, 'onOpen').callsFake(function (onOpenCallback) {
-        onOpenCallback('https://notOptions.popupOrigin.com', null, function (
-          result
-        ) {
-          expect(result).to.be.eql({
-            error: 'origin_mismatch',
-            error_description:
-              "The popup's origin (https://notOptions.popupOrigin.com) should match the `popupOrigin` parameter (https://options.popupOrigin.com)."
-          });
-          done();
-        });
+        onOpenCallback(
+          'https://notOptions.popupOrigin.com',
+          null,
+          function (result) {
+            expect(result).to.be.eql({
+              error: 'origin_mismatch',
+              error_description:
+                "The popup's origin (https://notOptions.popupOrigin.com) should match the `popupOrigin` parameter (https://options.popupOrigin.com)."
+            });
+            done();
+          }
+        );
       });
 
       this.authok.popup.callback({
@@ -808,7 +814,7 @@ describe('authok.WebAuth.popup', function () {
     });
     it('validates origin with windowHelper.getOrigin()', function (done) {
       var authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'id_token',
@@ -818,16 +824,18 @@ describe('authok.WebAuth.popup', function () {
         return 'https://window.popupOrigin.com';
       });
       sinon.stub(WinChan, 'onOpen').callsFake(function (onOpenCallback) {
-        onOpenCallback('https://notWindow.popupOrigin.com', null, function (
-          result
-        ) {
-          expect(result).to.be.eql({
-            error: 'origin_mismatch',
-            error_description:
-              "The popup's origin (https://notWindow.popupOrigin.com) should match the `popupOrigin` parameter (https://window.popupOrigin.com)."
-          });
-          done();
-        });
+        onOpenCallback(
+          'https://notWindow.popupOrigin.com',
+          null,
+          function (result) {
+            expect(result).to.be.eql({
+              error: 'origin_mismatch',
+              error_description:
+                "The popup's origin (https://notWindow.popupOrigin.com) should match the `popupOrigin` parameter (https://window.popupOrigin.com)."
+            });
+            done();
+          }
+        );
       });
 
       authok.popup.callback();
@@ -851,7 +859,7 @@ describe('authok.WebAuth.popup', function () {
         return 'https://window.popupOrigin.com';
       });
       var authok = new WebAuth({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'id_token',

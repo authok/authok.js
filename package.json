@@ -1,6 +1,6 @@
 {
   "name": "@authok/authok-js",
-  "version": "9.18.3",
+  "version": "9.18.4",
   "description": "authok headless browser sdk",
   "author": "authok",
   "license": "MIT",
@@ -112,9 +112,9 @@
   },
   "ccu": {
     "name": "authok",
-    "cdn": "https://cdn.authok.com",
+    "cdn": "https://cdn.authok.cn",
     "mainBundleFile": "authok.min.js",
-    "bucket": "assets.us.authok.com",
+    "bucket": "assets.us.authok.cn",
     "localPath": "dist",
     "digest": {
       "hashes": [

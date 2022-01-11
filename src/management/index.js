@@ -60,7 +60,7 @@ function Management(options) {
  * @method getUser
  * @param {String} userId identifier of the user to retrieve
  * @param {userCallback} cb
- * @see https://authok.com/docs/api/management/v2#!/Users/get_users_by_id
+ * @see https://authok.cn/docs/api/management/v2#!/Users/get_users_by_id
  * @memberof Management.prototype
  */
 Management.prototype.getUser = function (userId, cb) {
@@ -85,7 +85,7 @@ Management.prototype.getUser = function (userId, cb) {
  * @param {String} userId
  * @param {Object} userMetadata
  * @param {userCallback} cb
- * @see   {@link https://authok.com/docs/api/management/v2#!/Users/patch_users_by_id}
+ * @see   {@link https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id}
  * @memberof Management.prototype
  */
 Management.prototype.patchUserMetadata = function (userId, userMetadata, cb) {
@@ -116,7 +116,7 @@ Management.prototype.patchUserMetadata = function (userId, userMetadata, cb) {
  * @param {String} userId
  * @param {Object} user
  * @param {userCallback} cb
- * @see   {@link https://authok.com/docs/api/management/v2#!/Users/patch_users_by_id}
+ * @see   {@link https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id}
  * @memberof Management.prototype
  */
 Management.prototype.patchUserAttributes = function (userId, user, cb) {
@@ -147,7 +147,7 @@ Management.prototype.patchUserAttributes = function (userId, user, cb) {
  * @param {String} userId
  * @param {String} secondaryUserToken
  * @param {userCallback} cb
- * @see   {@link https://authok.com/docs/api/management/v2#!/Users/post_identities}
+ * @see   {@link https://authok.cn/docs/api/management/v2#!/Users/post_identities}
  * @memberof Management.prototype
  */
 Management.prototype.linkUser = function (userId, secondaryUserToken, cb) {

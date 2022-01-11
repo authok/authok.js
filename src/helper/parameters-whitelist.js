@@ -68,7 +68,7 @@ var authorizeParams = [
   'code_challenge_method',
 
   // ADDITIONAL_PARAMETERS:
-  // https://authok.com/docs/api/authentication?javascript#social
+  // https://authok.cn/docs/api/authentication?javascript#social
   'access_type',
   'display'
 ];

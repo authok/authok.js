@@ -498,7 +498,7 @@ Use cdn-uploader from NPM.
 
 **Fixed**
 
-- Fix CSRF vulnerability when `hash.state` is empty. Please read more about it [here](https://github.com/authok/authok.js/blob/master/SECURITY-NOTICE.md) and [here](https://authok.com/docs/security/bulletins/cve-2018-7307). [\#673](https://github.com/authok/authok.js/pull/673) ([luisrudge](https://github.com/luisrudge))
+- Fix CSRF vulnerability when `hash.state` is empty. Please read more about it [here](https://github.com/authok/authok.js/blob/master/SECURITY-NOTICE.md) and [here](https://authok.cn/docs/security/bulletins/cve-2018-7307). [\#673](https://github.com/authok/authok.js/pull/673) ([luisrudge](https://github.com/luisrudge))
 - Use WinChan on popup.callback again + adding origin check to keep it secure [\#669](https://github.com/authok/authok.js/pull/669) ([luisrudge](https://github.com/luisrudge))
 - Fixed error handling for auth in popup mode [\#668](https://github.com/authok/authok.js/pull/668) ([luisrudge](https://github.com/luisrudge))
 - Fix inconsistent cross origin error handling [\#667](https://github.com/authok/authok.js/pull/667) ([luisrudge](https://github.com/luisrudge))
@@ -603,9 +603,9 @@ Use cdn-uploader from NPM.
 **Breaking change**
 authok.js v9 uses our latest embedded login API. This version removes API calls to `usernamepassword/login` and `user/ssodata` and **is not supported in centralized login scenarios (i.e. Hosted Login Pages).** If you are using a Hosted Login Page, keep using authok.js v8.
 
-The scenarios below use a mix of Cross Origin Authentication and `WebAuth.checkSession`. Read more about Cross Origin Authentication and how to enable Web Origins [here](https://authok.com/docs/cross-origin-authentication).
+The scenarios below use a mix of Cross Origin Authentication and `WebAuth.checkSession`. Read more about Cross Origin Authentication and how to enable Web Origins [here](https://authok.cn/docs/cross-origin-authentication).
 
-We wrote a [Migration Guide](https://authok.com/docs/libraries/authokjs/v9/migration-guide) to make upgrading your app easy. If you need help, please reach out to our amazing support team at https://support.authok.com.
+We wrote a [Migration Guide](https://authok.cn/docs/libraries/authokjs/v9/migration-guide) to make upgrading your app easy. If you need help, please reach out to our amazing support team at https://support.authok.cn.
 
 **Breaking change**
 `WebAuth.client.getSSOData` now uses `WebAuth.checkSession` and a local cache to obtain the resulting data.

@@ -12,7 +12,7 @@ describe('authok.authentication', function () {
   context('dbConnection signup options', function () {
     before(function () {
       this.authok = new Authentication({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -79,7 +79,7 @@ describe('authok.authentication', function () {
 
       it('should send metadata on signup', function (done) {
         sinon.stub(request, 'post').callsFake(function (url) {
-          expect(url).to.be('https://me.authok.com/dbconnections/signup');
+          expect(url).to.be('https://me.authok.cn/dbconnections/signup');
           expect;
           return new RequestMock({
             body: {
@@ -129,7 +129,7 @@ describe('authok.authentication', function () {
 
       it('should send metadata on signup when using camel case', function (done) {
         sinon.stub(request, 'post').callsFake(function (url) {
-          expect(url).to.be('https://me.authok.com/dbconnections/signup');
+          expect(url).to.be('https://me.authok.cn/dbconnections/signup');
           expect;
           return new RequestMock({
             body: {
@@ -184,7 +184,7 @@ describe('authok.authentication', function () {
   context('change password options', function () {
     before(function () {
       this.authok = new Authentication({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',

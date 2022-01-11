@@ -11,7 +11,7 @@ describe('authok.authentication', function () {
   context('passwordless start options', function () {
     before(function () {
       this.authok = new Authentication({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -72,7 +72,7 @@ describe('authok.authentication', function () {
   context('passwordless verify options', function () {
     before(function () {
       this.authok = new Authentication({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -170,7 +170,7 @@ describe('authok.authentication', function () {
   context('passwordless start', function () {
     before(function () {
       this.authok = new Authentication({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -185,7 +185,7 @@ describe('authok.authentication', function () {
 
     it('should call passwordless start', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/start');
+        expect(url).to.be('https://me.authok.cn/passwordless/start');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -224,7 +224,7 @@ describe('authok.authentication', function () {
 
     it('should call passwordless start with authParams', function (done) {
       var authok = new Authentication({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'will be overridden',
         responseType: 'code',
@@ -233,7 +233,7 @@ describe('authok.authentication', function () {
       });
 
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/start');
+        expect(url).to.be('https://me.authok.cn/passwordless/start');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -280,7 +280,7 @@ describe('authok.authentication', function () {
 
     it('should call passwordless start with X-Request-Language header set', function (done) {
       var authok = new Authentication({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'will be overridden',
         responseType: 'code',
@@ -289,7 +289,7 @@ describe('authok.authentication', function () {
       });
 
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/start');
+        expect(url).to.be('https://me.authok.cn/passwordless/start');
         return new RequestMock({
           body: {
             client_id: '...',
@@ -340,7 +340,7 @@ describe('authok.authentication', function () {
   context('passwordless verify', function () {
     before(function () {
       this.authok = new Authentication({
-        domain: 'me.authok.com',
+        domain: 'me.authok.cn',
         clientID: '...',
         redirectUri: 'http://page.com/callback',
         responseType: 'code',
@@ -354,7 +354,7 @@ describe('authok.authentication', function () {
 
     it('should call passwordless verify sms with all the options', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/verify');
+        expect(url).to.be('https://me.authok.cn/passwordless/verify');
         return new RequestMock({
           body: {
             connection: 'the_connection',
@@ -388,7 +388,7 @@ describe('authok.authentication', function () {
 
     it('should call passwordless verify email with all the options', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/verify');
+        expect(url).to.be('https://me.authok.cn/passwordless/verify');
         return new RequestMock({
           body: {
             connection: 'the_connection',
@@ -422,7 +422,7 @@ describe('authok.authentication', function () {
 
     it('should call passwordless email verify removing extra parameters', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/verify');
+        expect(url).to.be('https://me.authok.cn/passwordless/verify');
         return new RequestMock({
           body: {
             connection: 'the_connection',
@@ -458,7 +458,7 @@ describe('authok.authentication', function () {
 
     it('should call passwordless sms verify removing extra parameters', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
-        expect(url).to.be('https://me.authok.com/passwordless/verify');
+        expect(url).to.be('https://me.authok.cn/passwordless/verify');
         return new RequestMock({
           body: {
             connection: 'sms',

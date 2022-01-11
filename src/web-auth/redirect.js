@@ -21,7 +21,7 @@ function Redirect(authok, options) {
 
 /**
  * username/password 进行用户登录, 采用跨域认证 (/co/authenticate) 流程. 你可以用 `username` 或 `email` 来标识用户, `username` 的优先级高于 `email`.
- * 部分浏览器可能无法成功认证，如果第三方 cookie 被浏览器禁用的话. [查看这里获取更多信息.]{@link https://authok.com/docs/cross-origin-authentication}.
+ * 部分浏览器可能无法成功认证，如果第三方 cookie 被浏览器禁用的话. [查看这里获取更多信息.]{@link https://authok.cn/docs/cross-origin-authentication}.
  * 调用 /co/authenticate 之后, you'll have to use the {@link parseHash} function at the `redirectUri` specified in the constructor.
  *
  * @method loginWithCredentials
