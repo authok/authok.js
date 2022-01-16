@@ -1,6 +1,6 @@
 {
   "name": "@authok/authok-js",
-  "version": "9.18.4",
+  "version": "9.18.5",
   "description": "authok headless browser sdk",
   "author": "authok",
   "license": "MIT",

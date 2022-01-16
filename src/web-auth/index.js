@@ -962,8 +962,8 @@ WebAuth.prototype.crossOriginVerification = function () {
  *
  * If you want to navigate the user to a specific URL after the logout, set that URL at the returnTo parameter. The URL should be included in any the appropriate Allowed Logout URLs list:
  *
- * - If the client_id parameter is included, the returnTo URL must be listed in the Allowed Logout URLs set at the authok Application level (see Setting Allowed Logout URLs at the App Level).
- * - If the client_id parameter is NOT included, the returnTo URL must be listed in the Allowed Logout URLs set at the account level (see Setting Allowed Logout URLs at the Account Level).
+ * - If the client_id parameter is included, the return_to URL must be listed in the Allowed Logout URLs set at the authok Application level (see Setting Allowed Logout URLs at the App Level).
+ * - If the client_id parameter is NOT included, the return_to URL must be listed in the Allowed Logout URLs set at the account level (see Setting Allowed Logout URLs at the Account Level).
  *
  * @method logout
  * @param {Object} [options]
