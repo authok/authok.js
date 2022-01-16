@@ -132,7 +132,7 @@
         <hr />
 
         <div>
-          <h4>Login with username and password:</h4>
+          <h4>用户名密码登录:</h4>
           <p>
             <input
               class="form-control login-username update-user-email"
@@ -191,7 +191,7 @@
         <hr />
 
         <div>
-          <h4>Login with database connection (popup):</h4>
+          <h4>数据库连接登录(popup):</h4>
           <p>
             <input
               class="form-control"
@@ -229,7 +229,7 @@
         <hr />
 
         <div>
-          <h4>Login with database connection (client login):</h4>
+          <h4>数据库连接登录(client login):</h4>
           <p>
             <input
               class="form-control"
@@ -264,7 +264,7 @@
         <hr />
 
         <div>
-          <h4>Login with /authorize:</h4>
+          <h4>/authorize 端点登录:</h4>
           <p>
             <input
               type="button"
@@ -292,7 +292,7 @@
         <hr />
 
         <div>
-          <h4>Login with /authorize (popup):</h4>
+          <h4>/authorize 端点登录(popup):</h4>
           <input
             type="button"
             class="btn btn-default btn-sm popup-login-hosted"
@@ -329,7 +329,7 @@
         <hr />
 
         <div>
-          <h4>Call token endpoint</h4>
+          <h4>调用 token 端点</h4>
           <input
             type="button"
             value="Get token"
@@ -340,7 +340,7 @@
         <hr />
 
         <div>
-          <h4>Check if you have an active session:</h4>
+          <h4>检查是否存在活跃会话:</h4>
           <input
             type="button"
             class="btn btn-default web-message-check-session"
@@ -473,11 +473,11 @@
         var domain =
           $domainInput.val() ||
           Cookies.get('authok_domain') ||
-          'brucke.authok.cn';
+          'wsz.cn.authok.cn';
         var clientId =
           $clientIdInput.val() ||
           Cookies.get('authok_client_id') ||
-          'k5u3o2fiAA8XweXEEX604KCwCjzjtMU6';
+          'B2b8F5A5yGqkAgSM8i2yotsGeSnurxDJ';
         var clientIdPwl =
           $clientIdPwl.val() ||
           Cookies.get('authok_client_id_pwl') ||
@@ -485,9 +485,9 @@
         var userEmail =
           $userEmailInput.val() ||
           Cookies.get('authok_user_email') ||
-          'johnfoo@gmail.com';
+          '12@126.com';
         var userPass =
-          $userPwdInput.val() || Cookies.get('authok_user_pw') || '1234';
+          $userPwdInput.val() || Cookies.get('authok_user_pw') || '123456';
         var configOrganization =
           $configOrganization.val() ||
           Cookies.get('authok_config_organization') ||
@@ -606,6 +606,7 @@
         e.preventDefault();
         webAuth.login(
           {
+            realm: 'c1',
             username: $('.login-username').val(),
             password: $('.login-password').val()
           },

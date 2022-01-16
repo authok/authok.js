@@ -855,7 +855,8 @@ WebAuth.prototype.login = function (options, cb) {
       'nonce',
       'onRedirecting',
       'organization',
-      'invitation'
+      'invitation',
+      'connection'
     ])
     .with(options);
 
@@ -864,7 +865,7 @@ WebAuth.prototype.login = function (options, cb) {
   var isHostedLoginPage =
     windowHelper.getWindow().location.host === this.baseOptions.domain;
 
-  if (isHostedLoginPage) {
+  if (true || isHostedLoginPage) {
     params.connection = params.realm;
     delete params.realm;
     this._universalLogin.login(params, cb);

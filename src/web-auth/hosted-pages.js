@@ -53,11 +53,16 @@ function HostedPages(client, options) {
  * @ignore
  */
 HostedPages.prototype.login = function (options, cb) {
-  if (windowHelper.getWindow().location.host !== this.baseOptions.domain) {
+  if (
+    false &&
+    windowHelper.getWindow().location.host !== this.baseOptions.domain
+  ) {
     throw new Error(
       'This method is meant to be used only inside the Universal Login Page.'
     );
   }
+
+  console.log('options: ', options);
 
   var usernamePassword;
 
@@ -73,7 +78,8 @@ HostedPages.prototype.login = function (options, cb) {
       '_csrf',
       'state',
       '_intstate',
-      'nonce'
+      'nonce',
+      'connection'
     ])
     .with(options);
 
