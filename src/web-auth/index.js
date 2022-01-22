@@ -658,7 +658,7 @@ WebAuth.prototype.checkSession = function (options, cb) {
 /**
  * Request an email with instruction to change a user's password
  *
- * @method changePassword
+ * @method changePasswordByEmail
  * @param {Object} options
  * @param {String} options.email address where the user will receive the change password email. It should match the user's email in authok
  * @param {String} options.connection name of the connection where the user was created
@@ -666,8 +666,8 @@ WebAuth.prototype.checkSession = function (options, cb) {
  * @see   {@link https://authok.cn/docs/api/authentication#change-password}
  * @memberof WebAuth.prototype
  */
-WebAuth.prototype.changePassword = function (options, cb) {
-  return this.client.dbConnection.changePassword(options, cb);
+WebAuth.prototype.changePasswordByEmail = function (options, cb) {
+  return this.client.dbConnection.changePasswordByEmail(options, cb);
 };
 
 /**

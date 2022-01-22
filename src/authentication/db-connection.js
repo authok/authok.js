@@ -85,7 +85,7 @@ DBConnection.prototype.signup = function (options, cb) {
 /**
  * Request an email with instruction to change a user's password
  *
- * @method changePassword
+ * @method changePasswordByEmail
  * @param {Object} options
  * @param {String} options.email address where the user will receive the change password email. It should match the user's email in authok
  * @param {String} options.connection name of the connection where the user was created
@@ -93,7 +93,7 @@ DBConnection.prototype.signup = function (options, cb) {
  * @see   {@link https://authok.cn/docs/api/authentication#change-password}
  * @ignore
  */
-DBConnection.prototype.changePassword = function (options, cb) {
+DBConnection.prototype.changePasswordByEmail = function (options, cb) {
   var url;
   var body;
 
@@ -112,6 +112,42 @@ DBConnection.prototype.changePassword = function (options, cb) {
   body = objectHelper
     .merge(this.baseOptions, ['clientID'])
     .with(options, ['email', 'connection']);
+
+  body = objectHelper.toSnakeCase(body, ['authokClient']);
+
+  return this.request.post(url).send(body).end(responseHandler(cb));
+};
+
+/**
+ * Request an sms with instruction to change a user's password
+ *
+ * @method changePasswordBySms
+ * @param {Object} options
+ * @param {String} options.phoneNumber address where the user will receive the change password email. It should match the user's email in authok
+ * @param {String} options.connection name of the connection where the user was created
+ * @param {changePasswordCallback} cb
+ * @see   {@link https://docs.authok.cn/api/authentication#change-password}
+ * @ignore
+ */
+DBConnection.prototype.changePasswordBySms = function (options, cb) {
+  var url;
+  var body;
+
+  assert.check(
+    options,
+    { type: 'object', message: 'options parameter is not valid' },
+    {
+      connection: { type: 'string', message: 'connection option is required' },
+      phoneNumber: { type: 'string', message: 'phoneNumber option is required' }
+    }
+  );
+  assert.check(cb, { type: 'function', message: 'cb parameter is not valid' });
+
+  url = urljoin(this.baseOptions.rootUrl, 'dbconnections', 'change_password');
+
+  body = objectHelper
+    .merge(this.baseOptions, ['clientID'])
+    .with(options, ['phoneNumber', 'vcode', 'connection']);
 
   body = objectHelper.toSnakeCase(body, ['authokClient']);
 

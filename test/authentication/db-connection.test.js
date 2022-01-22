@@ -195,7 +195,7 @@ describe('authok.authentication', function () {
     it('should check that options is passed', function () {
       var _this = this;
       expect(function () {
-        _this.authok.dbConnection.changePassword();
+        _this.authok.dbConnection.changePasswordByEmail();
       }).to.throwException(function (e) {
         expect(e.message).to.be('options parameter is not valid');
       });
@@ -204,7 +204,7 @@ describe('authok.authentication', function () {
     it('should check that options.connection is passed', function () {
       var _this = this;
       expect(function () {
-        _this.authok.dbConnection.changePassword({});
+        _this.authok.dbConnection.changePasswordByEmail({});
       }).to.throwException(function (e) {
         expect(e.message).to.be('connection option is required');
       });
@@ -213,7 +213,7 @@ describe('authok.authentication', function () {
     it('should check that options.email is passed', function () {
       var _this = this;
       expect(function () {
-        _this.authok.dbConnection.changePassword({ connection: 'bla' });
+        _this.authok.dbConnection.changePasswordByEmail({ connection: 'bla' });
       }).to.throwException(function (e) {
         expect(e.message).to.be('email option is required');
       });
@@ -222,7 +222,7 @@ describe('authok.authentication', function () {
     it('should check that cb is valid', function () {
       var _this = this;
       expect(function () {
-        _this.authok.dbConnection.changePassword({
+        _this.authok.dbConnection.changePasswordByEmail({
           connection: 'bla',
           email: 'blabla',
           password: '123456'

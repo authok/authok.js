@@ -1965,7 +1965,7 @@ describe('authok.WebAuth', function () {
       request.post.restore();
     });
 
-    it('should call db-connection changePassword with all the options', function (done) {
+    it('should call db-connection changePasswordByEmail with all the options', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
         expect(url).to.be('https://me.authok.cn/dbconnections/change_password');
         return new RequestMock({
@@ -1983,7 +1983,7 @@ describe('authok.WebAuth', function () {
         });
       });
 
-      this.authok.changePassword(
+      this.authok.changePasswordByEmail(
         {
           connection: 'the_connection',
           email: 'me@example.com'
@@ -1995,7 +1995,7 @@ describe('authok.WebAuth', function () {
       );
     });
 
-    it('should call db-connection changePassword should ignore password option', function (done) {
+    it('should call db-connection changePasswordByEmail should ignore password option', function (done) {
       sinon.stub(request, 'post').callsFake(function (url) {
         expect(url).to.be('https://me.authok.cn/dbconnections/change_password');
         return new RequestMock({
@@ -2013,7 +2013,7 @@ describe('authok.WebAuth', function () {
         });
       });
 
-      this.authok.changePassword(
+      this.authok.changePasswordByEmail(
         {
           connection: 'the_connection',
           email: 'me@example.com',
