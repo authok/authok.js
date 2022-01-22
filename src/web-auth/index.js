@@ -676,7 +676,7 @@ WebAuth.prototype.changePasswordByEmail = function (options, cb) {
  * @method changePasswordBySms
  * @param {Object} options
  * @param {String} options.phoneNumber phoneNumber where the user will receive the change password. It should match the user's email in authok
- * @param {String} options.vcode address where the user will receive the change password email. It should match the user's email in authok
+ * @param {String} options.vcode vcode
  * @param {String} options.connection name of the connection where the user was created
  * @param {changePasswordCallback} cb
  * @see   {@link https://docs.authok.cn/api/authentication#change-password}

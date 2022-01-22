@@ -1,5 +1,5 @@
 /**
- * @authok/authok-js v9.18.6
+ * @authok/authok-js v9.18.10
  * Author: authok
  * Date: 2022-01-22
  * License: MIT
@@ -8141,6 +8141,22 @@
 	 */
 	WebAuth.prototype.changePasswordByEmail = function (options, cb) {
 	  return this.client.dbConnection.changePasswordByEmail(options, cb);
+	};
+
+	/**
+	 * Request an sms with instruction to change a user's password
+	 *
+	 * @method changePasswordBySms
+	 * @param {Object} options
+	 * @param {String} options.phoneNumber phoneNumber where the user will receive the change password. It should match the user's email in authok
+	 * @param {String} options.vcode vcode
+	 * @param {String} options.connection name of the connection where the user was created
+	 * @param {changePasswordCallback} cb
+	 * @see   {@link https://docs.authok.cn/api/authentication#change-password}
+	 * @memberof WebAuth.prototype
+	 */
+	WebAuth.prototype.changePasswordBySms = function (options, cb) {
+	  return this.client.dbConnection.changePasswordBySms(options, cb);
 	};
 
 	/**
