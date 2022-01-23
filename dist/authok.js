@@ -1,7 +1,7 @@
 /**
- * @authok/authok-js v9.18.12
+ * @authok/authok-js v9.18.13
  * Author: authok
- * Date: 2022-01-23
+ * Date: 2022-01-24
  * License: MIT
  */
 
@@ -9435,7 +9435,11 @@
 	        },
 	        lastUsedUserID: result.idTokenPayload.sub,
 	        lastUsedUsername:
-	          result.idTokenPayload.email || result.idTokenPayload.name,
+	          result.idTokenPayload.email ||
+	          result.idTokenPayload.phoneNumber ||
+	          result.idTokenPayload.username ||
+	          result.idTokenPayload.name ||
+	          result.idTokenPayload.nickname,
 	        lastUsedClientID: clientId,
 	        sessionClients: [clientId],
 	        sso: true

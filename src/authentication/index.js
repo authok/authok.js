@@ -512,7 +512,11 @@ Authentication.prototype.getSSOData = function (withActiveDirectories, cb) {
         },
         lastUsedUserID: result.idTokenPayload.sub,
         lastUsedUsername:
-          result.idTokenPayload.email || result.idTokenPayload.name,
+          result.idTokenPayload.email ||
+          result.idTokenPayload.phoneNumber ||
+          result.idTokenPayload.username ||
+          result.idTokenPayload.name ||
+          result.idTokenPayload.nickname,
         lastUsedClientID: clientId,
         sessionClients: [clientId],
         sso: true
