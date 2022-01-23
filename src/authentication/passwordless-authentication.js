@@ -86,6 +86,11 @@ PasswordlessAuthentication.prototype.start = function (options, cb) {
     options,
     { type: 'object', message: 'options parameter is not valid' },
     {
+      scene: {
+        type: 'string',
+        optional: true,
+        message: 'scene, e.g.: login, reset_pwd'
+      },
       connection: { type: 'string', message: 'connection option is required' },
       send: {
         type: 'string',

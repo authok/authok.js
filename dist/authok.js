@@ -1,5 +1,5 @@
 /**
- * @authok/authok-js v9.18.11
+ * @authok/authok-js v9.18.12
  * Author: authok
  * Date: 2022-01-23
  * License: MIT
@@ -8356,10 +8356,12 @@
 	  var isHostedLoginPage =
 	    windowHelper.getWindow().location.host === this.baseOptions.domain;
 
-	  {
+	  if (isHostedLoginPage) {
 	    params.connection = params.realm;
 	    delete params.realm;
 	    this._universalLogin.login(params, cb);
+	  } else {
+	    this.crossOriginAuthentication.login(params, cb);
 	  }
 	};
 
@@ -8637,6 +8639,11 @@
 	    options,
 	    { type: 'object', message: 'options parameter is not valid' },
 	    {
+	      scene: {
+	        type: 'string',
+	        optional: true,
+	        message: 'scene, e.g.: login, reset_pwd'
+	      },
 	      connection: { type: 'string', message: 'connection option is required' },
 	      send: {
 	        type: 'string',
