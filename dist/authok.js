@@ -1,5 +1,5 @@
 /**
- * @authok/authok-js v9.18.13
+ * @authok/authok-js v9.18.14
  * Author: authok
  * Date: 2022-01-24
  * License: MIT
@@ -9436,7 +9436,7 @@
 	        lastUsedUserID: result.idTokenPayload.sub,
 	        lastUsedUsername:
 	          result.idTokenPayload.email ||
-	          result.idTokenPayload.phoneNumber ||
+	          result.idTokenPayload.phone_number ||
 	          result.idTokenPayload.username ||
 	          result.idTokenPayload.name ||
 	          result.idTokenPayload.nickname,
