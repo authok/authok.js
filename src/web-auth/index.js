@@ -673,17 +673,19 @@ WebAuth.prototype.changePasswordByEmail = function (options, cb) {
 /**
  * Request an sms with instruction to change a user's password
  *
- * @method changePasswordBySms
+ * @method changePasswordDirectly
  * @param {Object} options
- * @param {String} options.phoneNumber phoneNumber where the user will receive the change password. It should match the user's email in authok
- * @param {String} options.vcode vcode
- * @param {String} options.connection name of the connection where the user was created
+ * @param {String} options.realm
+ * @param {String} options.connection
+ * @param {String} options.vcode
+ * @param {String} options.username
+ * @param {String} options.password
  * @param {changePasswordCallback} cb
  * @see   {@link https://docs.authok.cn/api/authentication#change-password}
  * @memberof WebAuth.prototype
  */
-WebAuth.prototype.changePasswordBySms = function (options, cb) {
-  return this.client.dbConnection.changePasswordBySms(options, cb);
+WebAuth.prototype.changePasswordDirectly = function (options, cb) {
+  return this.client.dbConnection.changePasswordDirectly(options, cb);
 };
 
 /**
