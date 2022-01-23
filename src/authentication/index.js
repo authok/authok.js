@@ -513,7 +513,7 @@ Authentication.prototype.getSSOData = function (withActiveDirectories, cb) {
         lastUsedUserID: result.idTokenPayload.sub,
         lastUsedUsername:
           result.idTokenPayload.email ||
-          result.idTokenPayload.phoneNumber ||
+          result.idTokenPayload.phone_number ||
           result.idTokenPayload.username ||
           result.idTokenPayload.name ||
           result.idTokenPayload.nickname,
