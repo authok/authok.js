@@ -1,7 +1,7 @@
 /**
- * @authok/authok-js v9.18.10
+ * @authok/authok-js v9.18.11
  * Author: authok
- * Date: 2022-01-22
+ * Date: 2022-01-23
  * License: MIT
  */
 

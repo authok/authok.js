@@ -1,7 +1,7 @@
 /**
- * @authok/authok-js v9.18.10
+ * @authok/authok-js v9.18.11
  * Author: authok
- * Date: 2022-01-22
+ * Date: 2022-01-23
  * License: MIT
  */
 
@@ -8146,17 +8146,19 @@
 	/**
 	 * Request an sms with instruction to change a user's password
 	 *
-	 * @method changePasswordBySms
+	 * @method changePasswordDirectly
 	 * @param {Object} options
-	 * @param {String} options.phoneNumber phoneNumber where the user will receive the change password. It should match the user's email in authok
-	 * @param {String} options.vcode vcode
-	 * @param {String} options.connection name of the connection where the user was created
+	 * @param {String} options.realm
+	 * @param {String} options.connection
+	 * @param {String} options.vcode
+	 * @param {String} options.username
+	 * @param {String} options.password
 	 * @param {changePasswordCallback} cb
 	 * @see   {@link https://docs.authok.cn/api/authentication#change-password}
 	 * @memberof WebAuth.prototype
 	 */
-	WebAuth.prototype.changePasswordBySms = function (options, cb) {
-	  return this.client.dbConnection.changePasswordBySms(options, cb);
+	WebAuth.prototype.changePasswordDirectly = function (options, cb) {
+	  return this.client.dbConnection.changePasswordDirectly(options, cb);
 	};
 
 	/**
@@ -8884,15 +8886,18 @@
 	/**
 	 * Request an sms with instruction to change a user's password
 	 *
-	 * @method changePasswordBySms
+	 * @method changePasswordDirectly
 	 * @param {Object} options
-	 * @param {String} options.phoneNumber address where the user will receive the change password email. It should match the user's email in authok
-	 * @param {String} options.connection name of the connection where the user was created
+	 * @param {String} options.realm 'sms' or 'email'
+	 * @param {String} options.connection 用户所在连接
+	 * @param {String} options.vcode address where the user will receive the change password email. It should match the user's email in authok
+	 * @param {String} options.username realm为 sms 则为 username, realm 为 email 则为 phoneNumber
+	 * @param {String} options.password address where the user will receive the change password email. It should match the user's email in authok
 	 * @param {changePasswordCallback} cb
 	 * @see   {@link https://docs.authok.cn/api/authentication#change-password}
 	 * @ignore
 	 */
-	DBConnection.prototype.changePasswordBySms = function (options, cb) {
+	DBConnection.prototype.changePasswordDirectly = function (options, cb) {
 	  var url;
 	  var body;
 
@@ -8900,17 +8905,24 @@
 	    options,
 	    { type: 'object', message: 'options parameter is not valid' },
 	    {
+	      realm: { type: 'string', message: 'realm option is required' },
 	      connection: { type: 'string', message: 'connection option is required' },
-	      phoneNumber: { type: 'string', message: 'phoneNumber option is required' }
+	      vcode: { type: 'string', message: 'vcode option is required' },
+	      username: { type: 'string', message: 'username option is required' },
+	      password: { type: 'string', message: 'password option is required' }
 	    }
 	  );
 	  assert.check(cb, { type: 'function', message: 'cb parameter is not valid' });
 
-	  url = urlJoin(this.baseOptions.rootUrl, 'dbconnections', 'change_password');
+	  url = urlJoin(
+	    this.baseOptions.rootUrl,
+	    'dbconnections',
+	    'change_password_directly'
+	  );
 
 	  body = objectHelper
 	    .merge(this.baseOptions, ['clientID'])
-	    .with(options, ['phoneNumber', 'vcode', 'connection']);
+	    .with(options, ['realm', 'connection', 'vcode', 'username', 'password']);
 
 	  body = objectHelper.toSnakeCase(body, ['authokClient']);
 
