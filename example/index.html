@@ -75,6 +75,7 @@
       };
 
       HTMLConsole.prototype.dumpCallback = function (err, data) {
+        console.log('dump: ', err, data);
         if (err) {
           return this.dump(err, 'error');
         }
@@ -157,7 +158,7 @@
         <hr />
 
         <div>
-          <h4>Login with passwordless connection:</h4>
+          <h4>免密登录(email):</h4>
           <div>
             <p>
               <input
@@ -182,6 +183,43 @@
               <input
                 type="button"
                 class="btn btn-default passwordless-login-verify"
+                value="verify"
+              />
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div>
+          <h4>免密登录(sms):</h4>
+          <div>
+            <p>
+              <input
+                class="form-control passwordless-login-phone_number update-user-sms"
+                value=""
+                type="phone_number"
+              />
+            </p>
+            <p>
+              <input
+                type="button"
+                class="btn btn-default passwordless-login-sms"
+                value="login"
+              />
+            </p>
+          </div>
+          <div>
+            <p>
+              <input
+                class="form-control passwordless-login-code-sms"
+                value=""
+              />
+            </p>
+            <p>
+              <input
+                type="button"
+                class="btn btn-default passwordless-login-verify-sms"
                 value="verify"
               />
             </p>
@@ -481,7 +519,7 @@
         var clientIdPwl =
           $clientIdPwl.val() ||
           Cookies.get('authok_client_id_pwl') ||
-          'VZUvmnj3pd9yNgq8BjX4YA8Km14jQ0PN';
+          'B2b8F5A5yGqkAgSM8i2yotsGeSnurxDJ';
         var userEmail =
           $userEmailInput.val() ||
           Cookies.get('authok_user_email') ||
@@ -633,6 +671,33 @@
             connection: 'email',
             email: $('.passwordless-login-username').val(),
             send: 'code'
+          },
+          htmlConsole.dumpCallback.bind(htmlConsole)
+        );
+      });
+
+      $('.passwordless-login-sms').click(function (e) {
+        e.preventDefault();
+        webAuthPasswordless.passwordlessStart(
+          {
+            connection: 'sms',
+            phone_number: $('.passwordless-login-phone_number').val(),
+            send: 'code'
+          },
+          htmlConsole.dumpCallback.bind(htmlConsole)
+        );
+      });
+
+      $('.passwordless-login-verify-sms').click(function (e) {
+        e.preventDefault();
+
+        webAuthPasswordless.passwordlessLogin(
+          {
+            // popup: true,
+            // scope: 'openid email',
+            connection: 'sms',
+            phoneNumber: $('.passwordless-login-phone_number').val(),
+            verificationCode: $('.passwordless-login-code-sms').val()
           },
           htmlConsole.dumpCallback.bind(htmlConsole)
         );

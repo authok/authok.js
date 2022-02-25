@@ -1,7 +1,7 @@
 /**
- * @authok/authok-js v9.18.14
+ * @authok/authok-js v9.18.15
  * Author: authok
- * Date: 2022-01-24
+ * Date: 2022-02-25
  * License: MIT
  */
 
@@ -6126,6 +6126,7 @@
 	            wrapCallback(cb, { forceLegacyError: true })
 	          );
 	        } else {
+	          debugger;
 	          _this.webAuth.authorize(authorizeOptions);
 	        }
 	      }
@@ -9167,7 +9168,7 @@
 	    params.authokClient = this.request.getTelemetryData();
 	  }
 
-	  params = objectHelper.toSnakeCase(params, ['authokClient', 'returnTo']);
+	  params = objectHelper.toSnakeCase(params, ['authokClient']);
 
 	  qString = lib.stringify(objectHelper.blacklist(params, ['federated']));
 	  if (

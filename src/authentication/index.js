@@ -244,7 +244,7 @@ Authentication.prototype.buildLogoutUrl = function (options) {
     params.authokClient = this.request.getTelemetryData();
   }
 
-  params = objectHelper.toSnakeCase(params, ['authokClient', 'returnTo']);
+  params = objectHelper.toSnakeCase(params, ['authokClient']);
 
   qString = qs.stringify(objectHelper.blacklist(params, ['federated']));
   if (
