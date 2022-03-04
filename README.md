@@ -176,11 +176,11 @@ To do this, specify the `onRedirecting` function in the options and ensure that 
 ```js
 authok.client.login(
   {
-    realm: 'Username-Password-Authentication', //connection name or HRD domain
+    realm: 'Username-Password-Authentication', //数据源名称 或者 HRD domain
     username: 'info@authok.cn',
     password: 'areallystrongpassword',
     onRedirecting: function (done) {
-      // Your custom code here
+      // 自定义代码
       done();
     }
   },
