@@ -231,7 +231,7 @@ var authok = new authok.Authentication({
 
 ## authok.Management
 
-Provides an API Client for the authok Management API (only methods meant to be used from the client with the user token). You should use an `access_token` with the `https://YOUR_DOMAIN.authok.cn/api/v1/` audience to make this work. For more information, read [the user management section of the authok.js documentation](https://authok.cn/docs/libraries/authokjs/v9#user-management).
+Authok 管理 API 对应的 客户端 API (只有用户令牌中包含权限的方法可被调用). 您可以设置 `access_token` 和 `https://YOUR_DOMAIN.authok.cn/api/v1/` audience 来进行调用. 更多请参考 [Authok.js 文档中的用户管理章节](https://authok.cn/docs/libraries/authokjs/v9#user-management).
 
 ## 免密登录
 
