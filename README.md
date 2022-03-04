@@ -279,7 +279,7 @@ webAuth.authorize({
 });
 ```
 
-### Accept user invitations
+### 接受用户邀请
 
 Accept a user invitation through the SDK by creating a route within your application that can handle the user invitation URL, and log the user in by passing the `organization` and `invitation` parameters from this URL. You can either use `authorize` or `popup.authorize` as needed.
 
