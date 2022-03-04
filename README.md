@@ -191,9 +191,9 @@ authok.client.login(
 
 ## authok.Authentication
 
-Provides an API client for the authok Authentication API.
+为 Authok 认证 API 提供的客户端 API.
 
-### Initialize
+### 初始化
 
 ```js
 var authok = new authok.Authentication({
