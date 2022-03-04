@@ -110,7 +110,7 @@ function Authentication(authok, options) {
 }
 
 /**
- * Builds and returns the `/authorize` url in order to initialize a new authN/authZ transaction
+ * 构建 `/authorize` url 用于新的 authN/authZ 事务
  *
  * @method buildAuthorizeUrl
  * @param {Object} options
