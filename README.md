@@ -248,10 +248,10 @@ var authok = new authok.Management({
 
 ### API
 
-- **getUser(userId, cb)**: 返回用户详情. [https://authok.cn/docs/api/management/v2#!/Users/get_users_by_id](https://authok.cn/docs/api/management/v2#!/Users/get_users_by_id)
-- **patchUserMetadata(userId, userMetadata, cb)**: 更新用户元数据. It will patch the user metadata with the attributes sent. [https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id](https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id)
-- **patchUserAttributes(userId, user, cb)**: 更新用户属性. It will patch the root attributes that the server allows it. To check what attributes can be patched, go to [https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id](https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id)
-- **linkUser(userId, secondaryUserToken, cb)**: Link two users. [https://authok.cn/docs/api/management/v2#!/Users/post_identities](https://authok.cn/docs/api/management/v2#!/Users/post_identities)
+- **getUser(userId, cb)**: 返回用户详情. [参考](https://authok.cn/docs/api/management/v2#!/Users/get_users_by_id)
+- **patchUserMetadata(userId, userMetadata, cb)**: 更新用户元数据. [参考](https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id)
+- **patchUserAttributes(userId, user, cb)**: 更新用户属性. [进一步查看哪些用户属性可被修改](https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id)
+- **linkUser(userId, secondaryUserToken, cb)**: 关联两个用户. [参考](https://authok.cn/docs/api/management/v2#!/Users/post_identities)
 
 ## 组织(Organizations)
 
