@@ -113,7 +113,7 @@ authok.parseHash({ hash: window.location.hash }, function (err, authResult) {
   // authResult.idToken - ID token JWT containing user profile information
 
   authok.client.userInfo(authResult.accessToken, function (err, user) {
-    // Now you have the user's information
+    // 获取到用户信息
   });
 });
 ```
@@ -164,7 +164,7 @@ authok.client.login(
 );
 ```
 
-The contents of `authResult` are identical to those returned by `parseHash()`.
+`authResult` 与 `parseHash()` 返回的内容相同.
 
 **onRedirecting hook**
 
