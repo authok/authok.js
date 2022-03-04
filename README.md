@@ -19,7 +19,7 @@ authok.js 的完整 API 文档请参考 [这里](https://authok.github.io/authok
 - [authok.WebAuth](#authokwebauth)
 - [authok.Authentication](#authokauthentication)
 - [authok.Management](#authokmanagement)
-- [Passwordless Login](#passwordless-login)
+- [免密登录](#passwordless-login)
 - [组织](#organizations)
 - [文档](#documentation)
 - [迁移](#migration)
