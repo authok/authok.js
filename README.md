@@ -120,7 +120,8 @@ authok.parseHash({ hash: window.location.hash }, function (err, authResult) {
 
 #### checkSession(options, callback)
 
-Allows you to acquire a new token from authok for a user who already has an SSO session established against authok for your domain. If the user is not authenticated, the authentication result will be empty and you'll receive an error like this: `{error: 'login_required'}`.The method accepts any valid OAuth2 parameters that would normally be sent to `/authorize`.
+为已经在您的域建立过 SSO 会话的用户获取新令牌. 如果用户未经身份验证，身份验证结果将为空，并将收到如下错误: `{error: 'login_required'}`.
+该方法可以接受任何有效的 OAuth2 参数，和传给 `/authorize` 端点的参数一样.
 
 Everything happens inside an iframe, so it will not reload your application or redirect away from it.
 
