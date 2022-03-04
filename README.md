@@ -233,11 +233,11 @@ var authok = new authok.Authentication({
 
 Provides an API Client for the authok Management API (only methods meant to be used from the client with the user token). You should use an `access_token` with the `https://YOUR_DOMAIN.authok.cn/api/v2/` audience to make this work. For more information, read [the user management section of the authok.js documentation](https://authok.cn/docs/libraries/authokjs/v9#user-management).
 
-## Passwordless Login
+## 免密登录
 
 For information on how to implement Passwordless Login with this SDK, please read [Passwordless Login on authok Docs](https://authok.cn/docs/libraries/authokjs#passwordless-login).
 
-### Initialize
+### 初始化
 
 ```js
 var authok = new authok.Management({
