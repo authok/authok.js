@@ -96,9 +96,9 @@ authok.authorize({
 
 #### parseHash(options, callback)
 
-Parses a URL hash fragment to extract the result of an authok authentication response.
+解析 URL 哈希片段以提取 authok 身份验证响应的结果.
 
-**Note:** This method requires that your tokens are signed with **RS256**. Please check our [Migration Guide](https://authok.cn/docs/libraries/authokjs/v8/migration-guide#switching-from-hs256-to-rs256) for more information.
+**注意:** 该方法需要您的令牌采用 **RS256** 进行签名. 请查看 [迁移指南](https://authok.cn/docs/libraries/authokjs/v8/migration-guide#switching-from-hs256-to-rs256) 以获取更多信息.
 
 ```js
 authok.parseHash({ hash: window.location.hash }, function (err, authResult) {
