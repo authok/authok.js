@@ -174,7 +174,7 @@ To do this, specify the `onRedirecting` function in the options and ensure that 
 ```js
 authok.client.login(
   {
-    realm: 'Username-Password-Authentication', //数据源名称 或者 HRD domain
+    realm: 'Username-Password-Authentication', //身份源名称 或者 HRD domain
     username: 'info@authok.cn',
     password: 'areallystrongpassword',
     onRedirecting: function (done) {
