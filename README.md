@@ -130,7 +130,7 @@ authok.checkSession(
     scope: 'read:order write:order'
   },
   function (err, authResult) {
-    // Authentication tokens or error
+    // 认证令牌或错误
   }
 );
 ```
