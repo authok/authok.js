@@ -296,7 +296,7 @@ if (organization && invitation) {
 
 ## 文档
 
-For a complete reference and examples please check our [docs](https://authok.cn/docs/libraries/authokjs).
+完整参考和更多例子请参考 [官方文档](https://authok.cn/docs/libraries/authokjs).
 
 ## 开发
 
