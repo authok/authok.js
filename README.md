@@ -9,47 +9,47 @@
 [![Downloads][downloads-image]][downloads-url]
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauthok%2Fauthok.js.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fauthok%2Fauthok.js?ref=badge_shield)
 
-Client Side JavaScript toolkit for authok API.
+Authok API 的 Javascript 客户端 sdk.
 
-If you want to read the full API documentation of authok.js, see [here](https://authok.github.io/authok.js/index.html).
+authok.js 的完整 API 文档请参考 [这里](https://authok.github.io/authok.js/index.html).
 
 ## Index
 
-- [Install](#install)
+- [安装](#install)
 - [authok.WebAuth](#authokwebauth)
 - [authok.Authentication](#authokauthentication)
 - [authok.Management](#authokmanagement)
 - [Passwordless Login](#passwordless-login)
 - [组织](#organizations)
-- [Documentation](#documentation)
-- [Migration](#migration)
-- [Develop](#develop)
-- [Issue Reporting](#issue-reporting)
-- [Author](#author)
-- [License](#license)
+- [文档](#documentation)
+- [迁移](#migration)
+- [开发](#develop)
+- [问题报告](#issue-reporting)
+- [作者](#author)
+- [许可](#license)
 
 ## Install
 
-From CDN:
+通过 CDN:
 
 ```html
 <!-- Latest patch release -->
 <script src="https://cdn.authok.cn/js/authok/9.18.0/authok.min.js"></script>
 ```
 
-From [npm](https://npmjs.org):
+通过 [npm](https://npmjs.org):
 
 ```sh
 npm install authok-js
 ```
 
-After installing the `authok-js` module, you'll need bundle it up along with all of its dependencies.
+在安装 `authok-js` 模块后, 你需要把它和其所有依赖一起打包.
 
 ## authok.WebAuth
 
-Provides support for all the authentication flows.
+提供了对所有认证流程的支持.
 
-### Initialize
+### 初始化
 
 ```js
 var authok = new authok.WebAuth({
@@ -58,11 +58,11 @@ var authok = new authok.WebAuth({
 });
 ```
 
-**Parameters**
+**参数**
 
 All parameters can be considered optional unless otherwise stated.
 
-| Option                        | Type              | Description                                                                                                                                                                                                                                                                              |
+| 选项                          | 类型              | 描述                                                                                                                                                                                                                                                                                     |
 | :---------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `domain`                      | string (required) | Your authok account domain such as `'example.authok.cn'` or `'example.eu.authok.cn'`.                                                                                                                                                                                                    |
 | `clientID`                    | string (required) | The Client ID found on your Application settings page.                                                                                                                                                                                                                                   |
