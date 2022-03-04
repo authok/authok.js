@@ -315,8 +315,7 @@ if (organization && invitation) {
 
 运行 `npm install && npm run build && npm run test:es-check:es5 && npm run test:es-check:es2015:module` 来检查 JS 兼容性.
 
-See [.circleci/config.yml](.circleci/config.yml) for additional checks that might be run as part of
-[circleci integration tests](https://circleci.com/).
+参考 [.circleci/config.yml](.circleci/config.yml) 查看其它检查, [circleci 集成测试](https://circleci.com/).
 
 ## 问题报告
 
