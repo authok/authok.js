@@ -215,19 +215,19 @@ Builds and returns the Logout url in order to initialize a new authN/authZ trans
 
 #### loginWithDefaultDirectory(options, cb)
 
-Makes a call to the `oauth/token` endpoint with `password` grant type. [https://authok.cn/docs/api-auth/grant/password](https://authok.cn/docs/api-auth/grant/password)
+采用授权类型 `password` 来调用 `oauth/token` 端点. [https://authok.cn/docs/api-auth/grant/password](https://authok.cn/docs/api-auth/grant/password)
 
 #### login(options, cb)
 
-Makes a call to the `oauth/token` endpoint with `https://authok.cn/oauth/grant-type/password-realm` grant type.
+调用 `oauth/token` 端点, 授权类型为 `https://authok.cn/oauth/grant-type/password-realm`.
 
 #### oauthToken(options, cb)
 
-Makes a call to the `oauth/token` endpoint.
+调用 `oauth/token` 端点.
 
 #### userInfo(token, cb)
 
-Makes a call to the `/userinfo` endpoint and returns the user profile.
+调用 `/userinfo` 端点并返回用户详情.
 
 ## authok.Management
 
@@ -303,38 +303,38 @@ If you need help migrating to v9, please refer to the [v9 Migration Guide](https
 
 If you need help migrating to v8, please refer to the [v8 Migration Guide](https://authok.cn/docs/libraries/authokjs/v8/migration-guide).
 
-## Develop
+## 开发
 
-Run `npm install` to set up the environment.
+运行 `npm install` 来构建环境.
 
-Run `npm start` to point your browser to [`https://localhost:3000/`](https://localhost:3000/) to verify the example page works.
+运行 `npm start` 可以在浏览器中 [`https://localhost:3000/`](https://localhost:3000/) 运行示例.
 
-Run `npm test` to run the test suite.
+运行 `npm test` 来执行测试.
 
-Run `npm run ci:test` to run the tests that ci runs.
+运行 `npm run ci:test` 来进行 ci 测试.
 
-Run `npm run test:watch` to run the test suite while you work.
+运行 `npm run test:watch` 可以在运行时自动检测并执行测试.
 
-Run `npm run test:coverage` to run the test suite with coverage report.
+运行 `npm run test:coverage` 进行测试并生成覆盖报告.
 
-Run `npm run lint` to run the linter and check code styles.
+运行 `npm run lint` 进行 格式对齐 和代码风格检查.
 
-Run `npm install && npm run build && npm run test:es-check:es5 && npm run test:es-check:es2015:module` to check for JS incompatibility.
+运行 `npm install && npm run build && npm run test:es-check:es5 && npm run test:es-check:es2015:module` 来检查 JS 兼容性.
 
 See [.circleci/config.yml](.circleci/config.yml) for additional checks that might be run as part of
 [circleci integration tests](https://circleci.com/).
 
-## Issue Reporting
+## 问题报告
 
 If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://authok.cn/whitehat) details the procedure for disclosing security issues.
 
 For authok related questions/support please use the [Support Center](https://support.authok.cn).
 
-## Author
+## 作者
 
 [authok](https://authok.cn)
 
-## License
+## 许可
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
 
