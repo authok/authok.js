@@ -235,7 +235,9 @@ Provides an API Client for the authok Management API (only methods meant to be u
 
 ## 免密登录
 
-For information on how to implement Passwordless Login with this SDK, please read [Passwordless Login on authok Docs](https://authok.cn/docs/libraries/authokjs#passwordless-login).
+有关如何使用此 SDK 实现无密码登录的信息，请阅读 authok Docs 上的无密码登录。
+
+请参考 [免密登录](https://authok.cn/docs/libraries/authokjs#passwordless-login).
 
 ### 初始化
 
