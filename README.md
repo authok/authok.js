@@ -330,7 +330,7 @@ authok 相关的问题/支持请使用 [支持中心](https://support.authok.cn)
 
 ## 许可
 
-This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
+该项目基于 MIT 许可. 请参考 [LICENSE](LICENSE) 文件获取更多信息.
 
 <!-- Vaaaaarrrrsss -->
 
