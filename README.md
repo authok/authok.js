@@ -257,7 +257,7 @@ var authok = new authok.Management({
 
 ## 组织(Organizations)
 
-[Organizations](https://authok.cn/docs/organizations) is a set of features that provide better support for developers who build and maintain SaaS and Business-to-Business (B2B) applications.
+[组织](https://authok.cn/docs/organizations) 主要用于支持多租户 SaaS 应用和 B2B 应用.
 
 ### 登录到组织
 
