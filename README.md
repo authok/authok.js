@@ -61,20 +61,20 @@ var authok = new authok.WebAuth({
 
 除非另有说明，否则均为可选参数.
 
-| 选项                          | 类型            | 描述                                                                                                                                                                                               |
-| :---------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `domain`                      | string (必填项) | 您的 authok 租户域名, 例如 `'example.cn.authok.cn'`.                                                                                                                                               |
-| `clientID`                    | string (必填项) | 在 **应用** >> **设置** 中获取 对应的 Client ID .                                                                                                                                                  |
-| `redirectUri`                 | string          | 验证成功或失败后，authok 将把结果回调给该 URL. 需要被加入到 **应用** >> **设置** >> "回调 URL" .                                                                                                   |
-| `scope`                       | string          | 用于所有授权请求的默认 scope .                                                                                                                                                                     |
-| `audience`                    | string          | 默认的 audience, 用于访问 API.                                                                                                                                                                     |
-| `responseType`                | string          | 响应类型. 允许的响应类型 `code`, `token`, `id_token`, 多个响应类型用空格分割. **如果你没有提供全局 `responseType`, 则每次方法调用你都需要提供 `responseType` 参数**.                               |
-| `responseMode`                | string          | 响应模式, 默认为 `'fragment'`. `parseHash` 方法可通过 `fragment` 响应模式来解析认证响应. 支持的响应模式有 `query`, `fragment` 和 `form_post`. `query` 只有在 `responseType` 为 `code` 时才被允许.  |
-| `_disableDeprecationWarnings` | boolean         | 是否应将弃用警告输出到浏览器控制台，默认为`false`.                                                                                                                                                 |
-| `maxAge`                      | number          | 从上一次认证成功开始，令牌存活的有效期(秒为单位). 如果过期，令牌不可用，用户需要重新认证.                                                                                                          |
-| `leeway`                      | number          | 在 IDToken 验证期间使用。指定在验证基于时间的声明（如`iat`和`exp`）时可允许的时钟偏移(秒为单位)。默认值为 60 秒.                                                                                   |
-| `organization`                | string          | 组织 ID, 登录组织时需要 (参考 [组织](#organizations))                                                                                                                                              |
-| `invitation`                  | string          | The ID of the user invitation to accept. This is usually used in conjunction with the `organization` parameter, and should be parsed from an invitation URL. (see [Organizations](#organizations)) |
+| 选项                          | 类型            | 描述                                                                                                                                                                                              |
+| :---------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `domain`                      | string (必填项) | 您的 authok 租户域名, 例如 `'example.cn.authok.cn'`.                                                                                                                                              |
+| `clientID`                    | string (必填项) | 在 **应用** >> **设置** 中获取 对应的 Client ID .                                                                                                                                                 |
+| `redirectUri`                 | string          | 验证成功或失败后，authok 将把结果回调给该 URL. 需要被加入到 **应用** >> **设置** >> "回调 URL" .                                                                                                  |
+| `scope`                       | string          | 用于所有授权请求的默认 scope .                                                                                                                                                                    |
+| `audience`                    | string          | 默认的 audience, 用于访问 API.                                                                                                                                                                    |
+| `responseType`                | string          | 响应类型. 允许的响应类型 `code`, `token`, `id_token`, 多个响应类型用空格分割. **如果你没有提供全局 `responseType`, 则每次方法调用你都需要提供 `responseType` 参数**.                              |
+| `responseMode`                | string          | 响应模式, 默认为 `'fragment'`. `parseHash` 方法可通过 `fragment` 响应模式来解析认证响应. 支持的响应模式有 `query`, `fragment` 和 `form_post`. `query` 只有在 `responseType` 为 `code` 时才被允许. |
+| `_disableDeprecationWarnings` | boolean         | 是否应将弃用警告输出到浏览器控制台，默认为`false`.                                                                                                                                                |
+| `maxAge`                      | number          | 从上一次认证成功开始，令牌存活的有效期(秒为单位). 如果过期，令牌不可用，用户需要重新认证.                                                                                                         |
+| `leeway`                      | number          | 在 IDToken 验证期间使用。指定在验证基于时间的声明（如`iat`和`exp`）时可允许的时钟偏移(秒为单位)。默认值为 60 秒.                                                                                  |
+| `organization`                | string          | 组织 ID, 登录组织时需要 (参考 [组织](#organizations))                                                                                                                                             |
+| `invitation`                  | string          | 用户邀请 ID . 通常和 `organization` 参数结合使用, 通常从邀请链接的参数进行解析. (参考 [组织](#organizations))                                                                                     |
 
 ### API
 
