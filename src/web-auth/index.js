@@ -799,8 +799,8 @@ WebAuth.prototype.authorize = function (options) {
 };
 
 /**
- * Signs up a new user, automatically logs the user in after the signup and returns the user token.
- * The login will be done using /oauth/token with password-realm grant type.
+ * 注册一个新用户, 在注册成功后自动登录并返回token.
+ * 将采用 授权类型 password-realm 在 /oauth/token 端点进行登录.
  *
  * @method signupAndAuthorize
  * @param {Object} options
