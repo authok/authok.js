@@ -123,7 +123,7 @@ authok.parseHash({ hash: window.location.hash }, function (err, authResult) {
 为已经在您的域建立过 SSO 会话的用户获取新令牌. 如果用户未经身份验证，身份验证结果将为空，并将收到如下错误: `{error: 'login_required'}`.
 该方法可以接受任何有效的 OAuth2 参数，和传给 `/authorize` 端点的参数一样.
 
-Everything happens inside an iframe, so it will not reload your application or redirect away from it.
+逻辑都在 iframe 中执行，因此它不会重新加载应用程序或进行页面重定向。
 
 ```js
 authok.checkSession(
