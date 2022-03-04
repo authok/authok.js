@@ -143,7 +143,8 @@ authok.checkSession(
 
 **重要:** 因为该方法不会发生重定向, 所以不支持 `responseType: 'code'`，否则会抛出错误.
 
-Remember to add the URL where the authorization request originates from to the Allowed Web Origins list of your authok Application in the [Dashboard](https://manage.authok.cn/) under your Applications's **Settings**.
+请记得将发起授权请求的 来源 URL 添加到 [管理后台](https://manage.authok.cn/) >> 应用 >> 设置 >> `允许Web来源` 列表中.
+Remember to add the URL where the authorization request originates from to the Allowed Web Origins list of your authok Application in the [Dashboard] under your Applications's **Settings**.
 
 #### client.login(options, callback)
 
