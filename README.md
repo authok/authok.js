@@ -137,7 +137,7 @@ authok.checkSession(
 
 `authResult` 与 `parseHash()` 返回的内容相同.
 
-**重要:** If you're not using the hosted login page to do social logins, you have to use your own [social connection keys](https://manage.authok.cn/#/connections/social). If you use authok's dev keys, you'll always get `login_required` as an error when calling `checkSession`.
+**重要:** 如果您不是采用托管登录页进行社会化登录, 您必须使用自己的 [社交身份源配置](https://manage.authok.cn/#/connections/social). 如果您使用 Authok 的开发配置, 在调用 `checkSession` 时总是会收到 `login_required` 错误.
 
 **重要:** 因为该方法不会发生重定向, 所以不支持 `responseType: 'code'`，否则会抛出错误.
 
