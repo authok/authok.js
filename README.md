@@ -105,8 +105,7 @@ authok.parseHash({ hash: window.location.hash }, function (err, authResult) {
     return console.log(err);
   }
 
-  // authResult 的内容取决于何种认证参数被使用.
-  // 可以包含如下:
+  // authResult 的内容取决于何种认证参数被使用. 可包含如下信息:
   // authResult.accessToken - 通过 `audience` 指定的访问令牌
   // authResult.expiresIn - 访问令牌的过期时间(以秒为单位)
   // authResult.idToken - JWT 格式的 ID token, 包含用户详情
