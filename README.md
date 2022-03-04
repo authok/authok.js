@@ -20,7 +20,7 @@ If you want to read the full API documentation of authok.js, see [here](https://
 - [authok.Authentication](#authokauthentication)
 - [authok.Management](#authokmanagement)
 - [Passwordless Login](#passwordless-login)
-- [Organizations](#organizations)
+- [组织](#organizations)
 - [Documentation](#documentation)
 - [Migration](#migration)
 - [Develop](#develop)
@@ -146,7 +146,7 @@ Remember to add the URL where the authorization request originates from to the A
 
 #### client.login(options, callback)
 
-Authenticates a user with username and password in a realm using `/oauth/token`. This will not initialize a SSO session at authok, hence can not be used along with silent authentication.
+使用 `/oauth/token`端点来进行用户名/密码认证. 这里不会初始化 SSO 会话, 所以不能用于静默认证.
 
 ```js
 authok.client.login(
@@ -251,13 +251,13 @@ var authok = new authok.Management({
 - **patchUserAttributes(userId, user, cb)**: Updates the user attributes. It will patch the root attributes that the server allows it. To check what attributes can be patched, go to [https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id](https://authok.cn/docs/api/management/v2#!/Users/patch_users_by_id)
 - **linkUser(userId, secondaryUserToken, cb)**: Link two users. [https://authok.cn/docs/api/management/v2#!/Users/post_identities](https://authok.cn/docs/api/management/v2#!/Users/post_identities)
 
-## Organizations
+## 组织(Organizations)
 
 [Organizations](https://authok.cn/docs/organizations) is a set of features that provide better support for developers who build and maintain SaaS and Business-to-Business (B2B) applications.
 
-### Log in to an organization
+### 登录到组织
 
-To log in to a specific organization, pass the ID of the organization as the `organization` parameter when creating the `WebAuth` client:
+在创建 `WebAuth` client 时设置 `organization` 参数:
 
 ```js
 var webAuth = new WebAuth({
