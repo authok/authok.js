@@ -72,7 +72,7 @@ var authok = new authok.WebAuth({
 | `responseMode`                | string          | 响应模式, 默认为 `'fragment'`. `parseHash` 方法可通过 `fragment` 响应模式来解析认证响应. 支持的响应模式有 `query`, `fragment` 和 `form_post`. `query` 只有在 `responseType` 为 `code` 时才被允许.  |
 | `_disableDeprecationWarnings` | boolean         | 是否应将弃用警告输出到浏览器控制台，默认为`false`.                                                                                                                                                 |
 | `maxAge`                      | number          | 从上一次认证成功开始，令牌存活的有效期(秒为单位). 如果过期，令牌不可用，用户需要重新认证.                                                                                                          |
-| `leeway`                      | number          | Used during ID token validation. Specifies the number of seconds to account for clock skew when validating time-based claims such as `iat` and `exp`. The default is 60 seconds.                   |
+| `leeway`                      | number          | 在 IDToken 验证期间使用。指定在验证基于时间的声明（如`iat`和`exp`）时可允许的时钟偏移(秒为单位)。默认值为 60 秒.                                                                                   |
 | `organization`                | string          | The ID of the Organization to log in to (see [Organizations](#organizations))                                                                                                                      |
 | `invitation`                  | string          | The ID of the user invitation to accept. This is usually used in conjunction with the `organization` parameter, and should be parsed from an invitation URL. (see [Organizations](#organizations)) |
 
