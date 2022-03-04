@@ -150,7 +150,7 @@ authok.checkSession(
 ```js
 authok.client.login(
   {
-    realm: 'Username-Password-Authentication', //connection name or HRD domain
+    realm: 'Username-Password-Authentication', // 身份源名称或者 HRD domain
     username: 'info@authok.cn',
     password: 'areallystrongpassword',
     audience: 'https://mystore.com/api/v2',
