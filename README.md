@@ -320,9 +320,9 @@ See [.circleci/config.yml](.circleci/config.yml) for additional checks that migh
 
 ## 问题报告
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://authok.cn/whitehat) details the procedure for disclosing security issues.
+如果您发现了 bug, 或者有功能建议, 请给仓库提交 issue. 请不要在公开的 GitHub 问题报告中提交安全漏洞.
 
-For authok related questions/support please use the [Support Center](https://support.authok.cn).
+authok 相关的问题/支持请使用 [支持中心](https://support.authok.cn).
 
 ## 作者
 
