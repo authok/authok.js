@@ -183,7 +183,7 @@ authok.client.login(
     }
   },
   function (err, authResult) {
-    // Auth tokens in the result or an error
+    // 成功, 则返回的结果中包含 认证令牌; 失败, 则错误信息包含在 err 中
   }
 );
 ```
