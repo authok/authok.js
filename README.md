@@ -22,7 +22,6 @@ authok.js 的完整 API 文档请参考 [这里](https://authok.github.io/authok
 - [免密登录](#passwordless-login)
 - [组织](#organizations)
 - [文档](#documentation)
-- [迁移](#migration)
 - [开发](#develop)
 - [问题报告](#issue-reporting)
 - [作者](#author)
@@ -295,15 +294,9 @@ if (organization && invitation) {
 }
 ```
 
-## Documentation
+## 文档
 
 For a complete reference and examples please check our [docs](https://authok.cn/docs/libraries/authokjs).
-
-## Migration
-
-If you need help migrating to v9, please refer to the [v9 Migration Guide](https://authok.cn/docs/libraries/authokjs/v9/migration-guide).
-
-If you need help migrating to v8, please refer to the [v8 Migration Guide](https://authok.cn/docs/libraries/authokjs/v8/migration-guide).
 
 ## 开发
 
