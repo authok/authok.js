@@ -207,11 +207,11 @@ var authok = new authok.Authentication({
 
 #### buildAuthorizeUrl(options)
 
-Builds and returns the `/authorize` url in order to initialize a new authN/authZ transaction. [https://authok.cn/docs/api/authentication#database-ad-ldap-passive-](https://authok.cn/docs/api/authentication#database-ad-ldap-passive-)
+构建并返回 `/authorize` url 用于初始化新的 authN/authZ 事务. [https://authok.cn/docs/api/authentication#database-ad-ldap-passive-](https://authok.cn/docs/api/authentication#database-ad-ldap-passive-)
 
 #### buildLogoutUrl(options)
 
-Builds and returns the Logout url in order to initialize a new authN/authZ transaction. [https://authok.cn/docs/api/authentication#logout](https://authok.cn/docs/api/authentication#logout)
+构建并返回 退登 url. [https://authok.cn/docs/api/authentication#logout](https://authok.cn/docs/api/authentication#logout)
 
 #### loginWithDefaultDirectory(options, cb)
 
