@@ -269,7 +269,7 @@ var webAuth = new WebAuth({
 });
 ```
 
-You can also specify an organization when calling `authorize`:
+您可以在 调用 `authorize` 时指定 organization:
 
 ```js
 webAuth.authorize({
@@ -279,7 +279,7 @@ webAuth.authorize({
 
 ### 接受用户邀请
 
-Accept a user invitation through the SDK by creating a route within your application that can handle the user invitation URL, and log the user in by passing the `organization` and `invitation` parameters from this URL. You can either use `authorize` or `popup.authorize` as needed.
+在您的应用中创建一个路由用于处理邀请连接，然后通过 SDK 接受用户邀请, 并通过 `organization` 和 `invitation` 参数进行登录. 您可以根据需要使用 `authorize` 或 `popup.authorize`.
 
 ```js
 var url = new URL(invitationUrl)
