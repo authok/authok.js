@@ -168,7 +168,8 @@ authok.client.login(
 
 **onRedirecting hook**
 
-When using `login` to log in using a username and password, authok.js initially makes a call to authok to get a login ticket, before sending that login ticket to the `/authorize` endpoint to be exchanged for tokens. You are able to specify an `onRedirecting` hook here to handle when authok.js is about to redirect to the `/authorize` endpoint, for the purposes of executing some custom code (analytics, etc).
+当使用用户名/密码进行登录 `login` 时，authok.js 首先会向 authok 获取一个登录票证`login ticket`，然后将该登录票证发送到 `/authorize` 端点交换令牌。
+您可以指定一个 `onRedirecting` 钩子, 在重定向到 `/authorize` 端点前做一些自定义处理（例如统计分析等).
 
 To do this, specify the `onRedirecting` function in the options and ensure that the `done` callback is called when you are finished executing your custom code. Otherwise, authentication will be blocked.
 
