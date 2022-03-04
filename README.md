@@ -81,9 +81,9 @@ All parameters can be considered optional unless otherwise stated.
 
 #### authorize(options)
 
-Redirects to the `/authorize` endpoint to start an authentication/authorization transaction. authok will call back to your application with the results at the specified `redirectUri`.
+重定向到 `/authorize` 端点以启动验证/授权事务。authok 将会把结果回调给您指定的 URL `redirectUri`.
 
-**Note:** The default scope for this method is `openid profile email`.
+**注意:** 该方法默认的 scope 为 `openid profile email`.
 
 ```js
 authok.authorize({
