@@ -129,7 +129,6 @@ CrossOriginAuthentication.prototype.login = function (options, cb) {
             responseHandler(cb, { forceLegacyError: true })
           );
         } else {
-          debugger;
           _this.webAuth.authorize(authorizeOptions);
         }
       }
