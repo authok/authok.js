@@ -485,9 +485,9 @@ describe('authok.WebAuth.redirect', function () {
     });
 
     it('should redirect to logout', function () {
-      this.authok.logout({ redirect_to: 'http://example.com/logout' });
+      this.authok.logout({ redirect_to: 'http://example.com/v1/logout' });
       expect(global.window.location).to.be(
-        'https://me.authok.cn/logout?client_id=...&redirect_to=http%3A%2F%2Fexample.com%2Flogout'
+        'https://me.authok.cn/v1/logout?client_id=...&redirect_to=http%3A%2F%2Fexample.com%2Flogout'
       );
     });
   });

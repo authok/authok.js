@@ -1,7 +1,7 @@
 /**
- * @authok/authok-js v9.18.16
+ * @authok/authok-js v9.18.18
  * Author: authok
- * Date: 2022-03-13
+ * Date: 2022-03-15
  * License: MIT
  */
 
@@ -9179,7 +9179,7 @@
 	    qString += '&federated';
 	  }
 
-	  return urlJoin(this.baseOptions.rootUrl, 'logout', '?' + qString);
+	  return urlJoin(this.baseOptions.rootUrl, 'v1', 'logout', '?' + qString);
 	};
 
 	/**

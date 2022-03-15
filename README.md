@@ -229,13 +229,13 @@ var authok = new authok.Authentication({
 
 ## authok.Management
 
-Authok 管理 API 对应的 客户端 API (只有用户令牌中包含权限的方法可被调用). 您可以设置 `access_token` 和 `https://YOUR_DOMAIN.authok.cn/api/v1/` audience 来进行调用. 更多请参考 [Authok.js 文档中的用户管理章节](https://authok.cn/docs/libraries/authokjs/v9#user-management).
+Authok 管理 API 对应的 客户端 API (只有用户令牌中包含权限的方法可被调用). 您可以设置 `access_token` 和 `https://YOUR_DOMAIN.authok.cn/api/v1/` audience 来进行调用. 更多请参考 [Authok.js 文档中的用户管理章节](https://docs.authok.cn/libraries/authokjs/v9#user-management).
 
 ## 免密登录
 
 有关如何使用此 SDK 实现无密码登录的信息，请阅读 authok Docs 上的无密码登录。
 
-请参考 [免密登录](https://authok.cn/docs/libraries/authokjs#passwordless-login).
+请参考 [免密登录](https://docs.authok.cn/libraries/authokjs#passwordless-login).
 
 ### 初始化
 
@@ -255,7 +255,7 @@ var authok = new authok.Management({
 
 ## 组织(Organizations)
 
-[组织](https://authok.cn/docs/organizations) 主要用于支持多租户 SaaS 应用和 B2B 应用.
+[组织](https://docs.authok.cn/organizations) 主要用于支持多租户 SaaS 应用和 B2B 应用.
 
 ### 登录到组织
 
@@ -295,7 +295,7 @@ if (organization && invitation) {
 
 ## 文档
 
-完整参考和更多例子请参考 [官方文档](https://authok.cn/docs/libraries/authokjs).
+完整参考和更多例子请参考 [官方文档](https://docs.authok.cn/libraries/authokjs).
 
 ## 开发
 

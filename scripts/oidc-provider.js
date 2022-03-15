@@ -16,7 +16,7 @@ const config = {
   routes: {
     authorization: '/authorize', // lgtm [js/hardcoded-credentials]
     token: '/oauth/token',
-    end_session: '/logout',
+    end_session: '/v1/logout',
     jwks: '/.well-known/jwks.json'
   },
   pkce: {

@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>authok.js Demo Examples</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.auth0.com/styleguide/core/2.0.5/core.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.auth0.com/styleguide/components/2.0.0/components.min.css"
-    />
+    <title>Authok.js例子</title>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
     <script src="/authok.js"></script>
@@ -125,10 +117,10 @@
   <body class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h1>authok.JS playground</h1>
+        <h1>Authok.JS playground</h1>
       </div>
       <div class="col-xs-6">
-        <h2>Actions</h2>
+        <h2>操作</h2>
 
         <hr />
 
@@ -356,7 +348,7 @@
         <hr />
 
         <div>
-          <h4>Renew authentication:</h4>
+          <h4>刷新认证:</h4>
           <input
             type="button"
             class="btn btn-default renew-auth"
@@ -389,9 +381,7 @@
         <hr />
 
         <div>
-          <h4>
-            Get information about the last successful authorization request
-          </h4>
+          <h4>最后一次成功的授权请求信息</h4>
           <input
             type="button"
             class="btn btn-default getssodata"
@@ -402,25 +392,25 @@
         <hr />
 
         <div>
-          <h4>SSO Logout:</h4>
+          <h4>SSO 注销:</h4>
           <input type="button" class="btn btn-default logout" value="Logout" />
         </div>
 
         <hr />
 
-        <h2>Config</h2>
+        <h2>配置</h2>
 
         <div>
-          <h4>Domain:</h4>
+          <h4>域名:</h4>
           <input class="form-control" id="config-domain" value="" />
 
           <h4>Client ID:</h4>
           <input class="form-control" id="config-client-id" value="" />
 
-          <h4>Client ID (passwordless):</h4>
+          <h4>Client ID (免密):</h4>
           <input class="form-control" id="config-client-id-pwl" value="" />
 
-          <h4>User email:</h4>
+          <h4>邮箱:</h4>
           <input
             class="form-control update-user-email"
             id="config-user-email"
@@ -428,18 +418,15 @@
             value=""
           />
 
-          <h4>User password:</h4>
+          <h4>用户密码:</h4>
           <input
             class="form-control update-user-password"
             id="config-user-password"
             value=""
           />
 
-          <h4>Organization ID</h4>
-          <p>
-            This is only applicable when logging in using the Universal Login
-            Page.
-          </p>
+          <h4>组织 ID</h4>
+          <p>通过全局登录页登录时才会生效.</p>
           <div style="display: flex">
             <input
               type="text"
@@ -455,12 +442,12 @@
             />
           </div>
 
-          <h4>User Invitation</h4>
-          <p>Paste in an invitation URL and be logged in</p>
+          <h4>用户邀请</h4>
+          <p>粘贴邀请链接并登录</p>
           <div>
             <input
               type="button"
-              value="Test User Invitation"
+              value="测试用户邀请"
               class="btn btn-default"
               id="invoke-invite"
             />
@@ -515,11 +502,11 @@
         var clientId =
           $clientIdInput.val() ||
           Cookies.get('authok_client_id') ||
-          'B2b8F5A5yGqkAgSM8i2yotsGeSnurxDJ';
+          'C2b8F5A5yGqkAgSM8i2yotsGeSnurxDJ';
         var clientIdPwl =
           $clientIdPwl.val() ||
           Cookies.get('authok_client_id_pwl') ||
-          'B2b8F5A5yGqkAgSM8i2yotsGeSnurxDJ';
+          'C2b8F5A5yGqkAgSM8i2yotsGeSnurxDJ';
         var userEmail =
           $userEmailInput.val() ||
           Cookies.get('authok_user_email') ||
